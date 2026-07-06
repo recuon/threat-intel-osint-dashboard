@@ -1,0 +1,834 @@
+[
+  {
+    "name": "SpiderFoot",
+    "repo": "smicallef/spiderfoot",
+    "category": "OSINT Recon & Footprinting",
+    "stars": 19274,
+    "language": "Python",
+    "license": "MIT",
+    "lastPushed": "2026-04-13",
+    "description": "SpiderFoot automates OSINT for threat intelligence and mapping your attack surface.",
+    "keyFeatures": [
+      "Automates OSINT collection by integrating with a huge range of data sources and modules",
+      "Built-in web-based UI for running scans and visually navigating results",
+      "Maps attack surface and gathers threat intelligence for targets (domains, IPs, emails, etc.)",
+      "Usable as a standalone tool or embedded via its API/CLI for automation workflows"
+    ]
+  },
+  {
+    "name": "theHarvester",
+    "repo": "laramies/theHarvester",
+    "category": "OSINT Recon & Footprinting",
+    "stars": 16723,
+    "language": "Python",
+    "license": "none",
+    "lastPushed": "2026-06-29",
+    "description": "E-mails, subdomains and names Harvester - OSINT tool for gathering names, emails, IPs, subdomains, and URLs during the reconnaissance phase of red team assessments and penetration tests.",
+    "keyFeatures": [
+      "Aggregates OSINT data (emails, subdomains, IPs, names, URLs) on a target domain using dozens of passive modules (e.g. Baidu, Censys, crt.sh, Shodan)",
+      "Designed for the reconnaissance stage of red team engagements and penetration tests",
+      "Installable via uv/pip with an active Python (3.12+) codebase and CI pipeline",
+      "Optional REST API routes protected via THEHARVESTER_API_KEY header auth"
+    ]
+  },
+  {
+    "name": "Amass",
+    "repo": "owasp-amass/amass",
+    "category": "OSINT Recon & Footprinting",
+    "stars": 14806,
+    "language": "Go",
+    "license": "none",
+    "lastPushed": "2026-04-17",
+    "description": "In-depth attack surface mapping and asset discovery",
+    "keyFeatures": [
+      "Network mapping of attack surfaces via OSINT and active reconnaissance",
+      "External asset discovery and subdomain enumeration",
+      "OWASP flagship project with active Discord community and Docker image",
+      "Extensive data source integrations for footprinting"
+    ]
+  },
+  {
+    "name": "Photon",
+    "repo": "s0md3v/Photon",
+    "category": "OSINT Recon & Footprinting",
+    "stars": 13000,
+    "language": "Python",
+    "license": "GPL-3.0",
+    "lastPushed": "2026-02-10",
+    "description": "Incredibly fast crawler designed for OSINT.",
+    "keyFeatures": [
+      "Extracts URLs, emails, social media accounts, secret keys/API keys, JS endpoints, subdomains and DNS data while crawling",
+      "Supports custom regex pattern matching and exporting results as organized/JSON output",
+      "Flexible crawl controls: timeout, delay, seed URLs, URL exclusion patterns",
+      "Plugin support including Wayback Machine seeding and dnsdumpster DNS data dumping"
+    ]
+  },
+  {
+    "name": "BBOT",
+    "repo": "blacklanternsecurity/bbot",
+    "category": "OSINT Recon & Footprinting",
+    "stars": 10094,
+    "language": "Python",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-07-05",
+    "description": "The recursive internet scanner for hackers — a multipurpose OSINT/recon tool inspired by Spiderfoot, built to automate reconnaissance, bug bounties, and attack surface management (ASM).",
+    "keyFeatures": [
+      "Recursive scanning engine that chains 90+ modules together for subdomain enumeration, port scanning, web screenshots, and more",
+      "Finds 20-50% more subdomains than comparable tools via passive API sources plus target-specific DNS brute-forcing",
+      "Modular, flag-based preset system (e.g. subdomain-enum) for customizing scan scope and output",
+      "Output integrations and visualizations (e.g. VivaGraphJS) for real-time scan graphing"
+    ]
+  },
+  {
+    "name": "recon-ng",
+    "repo": "lanmaster53/recon-ng",
+    "category": "OSINT Recon & Footprinting",
+    "stars": 5751,
+    "language": "Python",
+    "license": "GPL-3.0",
+    "lastPushed": "2024-11-01",
+    "description": "Open Source Intelligence gathering tool aimed at reducing the time spent harvesting information from open sources.",
+    "keyFeatures": [
+      "Full-featured OSINT reconnaissance framework with a Metasploit-like modular CLI interface",
+      "Marketplace-style module installation for web-based, API-based, and dorking search modules",
+      "Independent database interaction for storing, exporting, and correlating harvested recon data",
+      "Built-in reporting engine and interactive help system for building custom collection workflows"
+    ]
+  },
+  {
+    "name": "Sherlock",
+    "repo": "sherlock-project/sherlock",
+    "category": "Username, People & Email Enumeration",
+    "stars": 86126,
+    "language": "Python",
+    "license": "MIT",
+    "lastPushed": "2026-07-06",
+    "description": "Hunt down social media accounts by username across social networks",
+    "keyFeatures": [
+      "Searches for a given username across a large number of social media and web platforms",
+      "Command-line tool written in Python for OSINT and username enumeration",
+      "Reports which platforms have a matching account for the target username",
+      "Actively maintained with a dedicated project site (sherlockproject.xyz)"
+    ]
+  },
+  {
+    "name": "Maigret",
+    "repo": "soxoj/maigret",
+    "category": "Username, People & Email Enumeration",
+    "stars": 34970,
+    "language": "Python",
+    "license": "MIT",
+    "lastPushed": "2026-07-06",
+    "description": "Collect a dossier on a person by username from 3000+ sites",
+    "keyFeatures": [
+      "Searches 3000+ sites for a given username to build a person dossier",
+      "Generates HTML/PDF/JSON reports with discovered profiles and extracted metadata",
+      "Recursive search that extracts data (emails, links, other usernames) from found pages to expand the search",
+      "CLI, Docker, and API/web interface usage"
+    ]
+  },
+  {
+    "name": "GHunt",
+    "repo": "mxrch/GHunt",
+    "category": "Username, People & Email Enumeration",
+    "stars": 19186,
+    "language": "Python",
+    "license": "Other (NOASSERTION)",
+    "lastPushed": "2026-04-10",
+    "description": "Offensive Google framework, currently focused on OSINT, for gathering information on Google accounts (Gmail/Gaia), Drive files, and more.",
+    "keyFeatures": [
+      "Get detailed info on an email address (Gaia ID, Google account details) or a Gaia ID directly",
+      "Investigate Google Drive files and folders for exposed metadata",
+      "Geolocate BSSIDs and find assets via Digital Asset Links (spiderdal)",
+      "CLI and Python library usage with JSON export and a browser companion extension for login"
+    ]
+  },
+  {
+    "name": "PhoneInfoga",
+    "repo": "sundowndev/phoneinfoga",
+    "category": "Username, People & Email Enumeration",
+    "stars": 16792,
+    "language": "Go",
+    "license": "GPL-3.0",
+    "lastPushed": "2026-01-06",
+    "description": "Information gathering framework for phone numbers",
+    "keyFeatures": [
+      "Gathers information on phone numbers using OSINT techniques (carrier, line type, country)",
+      "Cross-references numbers against search engines and social media/footprint sources",
+      "Modular scanner architecture (local, numverify, googlesearch, etc.)",
+      "Ships as a CLI tool and a web client/API for interactive investigations"
+    ]
+  },
+  {
+    "name": "holehe",
+    "repo": "megadose/holehe",
+    "category": "Username, People & Email Enumeration",
+    "stars": 11597,
+    "language": "Python",
+    "license": "GPL-3.0",
+    "lastPushed": "2024-09-10",
+    "description": "Checks if an email address is registered on various websites (Twitter, Instagram, etc.) by exploiting forgotten-password functionality.",
+    "keyFeatures": [
+      "Checks an email against 120+ sites/services for account registration",
+      "Exploits 'forgot password' flows to detect account existence without alerting the target",
+      "CLI tool usable in OSINT investigations and email verification workflows",
+      "Modular architecture allowing easy addition of new site modules"
+    ]
+  },
+  {
+    "name": "h8mail",
+    "repo": "khast3x/h8mail",
+    "category": "Username, People & Email Enumeration",
+    "stars": 5077,
+    "language": "Python",
+    "license": "none",
+    "lastPushed": "2023-08-15",
+    "description": "Email OSINT & Password breach hunting tool, locally or using premium services. Supports chasing down related email",
+    "keyFeatures": [
+      "Queries multiple breach/recon APIs (HaveIBeenPwned, Hunter.io, and more) plus local breach compilations like Collection#1",
+      "Email pattern matching via regex and can extract emails directly from URLs/pages",
+      "Chases and regroups related emails across targets, with bulk file input support",
+      "Outputs results to CSV or JSON, installable via pip"
+    ]
+  },
+  {
+    "name": "WhatsMyName",
+    "repo": "WebBreacher/WhatsMyName",
+    "category": "Username, People & Email Enumeration",
+    "stars": 2643,
+    "language": "Python",
+    "license": "CC-BY-SA-4.0",
+    "lastPushed": "2026-06-24",
+    "description": "Community-maintained dataset of 700+ websites for finding accounts by username — powers OSINT and digital footprint tools.",
+    "keyFeatures": [
+      "JSON dataset (wmn-data.json) of hundreds of sites for username existence checks, built to minimize false positives",
+      "Created in 2015 by Micah 'WebBreacher' Hoffman, now a widely-used community-maintained OSINT dataset",
+      "Powers numerous third-party username enumeration tools and web search front-ends",
+      "Actively maintained via community contributions with a documented contribution process"
+    ]
+  },
+  {
+    "name": "nuclei",
+    "repo": "projectdiscovery/nuclei",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 29515,
+    "language": "Go",
+    "license": "MIT",
+    "lastPushed": "2026-07-06",
+    "description": "A fast, customizable vulnerability scanner powered by the global security community and built on a simple YAML-based DSL, enabling collaboration to tackle trending vulnerabilities on the internet. It helps find vulnerabilities in applications, APIs, networks, DNS, and cloud configurations.",
+    "keyFeatures": [
+      "YAML-based DSL for defining vulnerability and misconfiguration templates",
+      "Community-powered template library covering trending CVEs and exposures",
+      "Scans across applications, APIs, networks, DNS, and cloud configurations",
+      "Fast, highly customizable scanning engine written in Go"
+    ]
+  },
+  {
+    "name": "masscan",
+    "repo": "robertdavidgraham/masscan",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 25835,
+    "language": "C",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-04-23",
+    "description": "TCP port scanner that spews SYN packets asynchronously, capable of scanning the entire Internet in under 5 minutes.",
+    "keyFeatures": [
+      "Asynchronous, stateless SYN-scanning engine for extremely high-speed port scans across huge IP ranges",
+      "Can scan the entire public IPv4 Internet in under 5 minutes at full rate",
+      "Supports flexible target/port ranges with nmap-like CLI syntax and output formats (XML, JSON, binary)",
+      "Includes banner-checking and adjustable transmission rate control to manage scan speed and bandwidth"
+    ]
+  },
+  {
+    "name": "RustScan",
+    "repo": "bee-san/RustScan",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 20058,
+    "language": "Rust",
+    "license": "GPL-3.0",
+    "lastPushed": "2026-07-02",
+    "description": "The Modern Port Scanner — fast, smart, effective.",
+    "keyFeatures": [
+      "Scans all 65k ports in about 3 seconds",
+      "Full scripting engine support (Python, Lua, Shell) to pipe results into Nmap or custom scripts",
+      "Adaptive learning that improves scan performance the more it's used",
+      "Supports IPv6, CIDR ranges, file input, and Docker usage"
+    ]
+  },
+  {
+    "name": "katana",
+    "repo": "projectdiscovery/katana",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 17132,
+    "language": "Go",
+    "license": "MIT",
+    "lastPushed": "2026-07-01",
+    "description": "A next-generation crawling and spidering framework.",
+    "keyFeatures": [
+      "Fast, fully configurable web crawling with standard and headless (JS-rendering) modes",
+      "Customizable automatic form filling and scope control via preconfigured fields or regex",
+      "ML-based knowledge base for page-type/form classification",
+      "Flexible input (STDIN, URL, list) and output (STDOUT, file, JSON) handling"
+    ]
+  },
+  {
+    "name": "subfinder",
+    "repo": "projectdiscovery/subfinder",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 13966,
+    "language": "Go",
+    "license": "MIT",
+    "lastPushed": "2026-07-03",
+    "description": "Fast passive subdomain enumeration tool.",
+    "keyFeatures": [
+      "Fast and powerful resolution and wildcard elimination modules",
+      "Curated passive sources to maximize subdomain discovery results",
+      "Multiple output formats supported (JSON, file, stdout)",
+      "STDIN/STDOUT support for easy pipeline/workflow integration"
+    ]
+  },
+  {
+    "name": "Nmap",
+    "repo": "nmap/nmap",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 13150,
+    "language": "C",
+    "license": "none",
+    "lastPushed": "2026-07-02",
+    "description": "Nmap - the Network Mapper. GitHub mirror of the official SVN repository for the free and open-source network discovery and security auditing tool.",
+    "keyFeatures": [
+      "Host discovery and port scanning across large networks",
+      "Service/version detection and OS fingerprinting",
+      "Scriptable interaction via the Nmap Scripting Engine (NSE)",
+      "Includes Zenmap GUI front-end for visual scan management"
+    ]
+  },
+  {
+    "name": "httpx",
+    "repo": "projectdiscovery/httpx",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 10136,
+    "language": "Go",
+    "license": "MIT",
+    "lastPushed": "2026-07-06",
+    "description": "httpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library.",
+    "keyFeatures": [
+      "Fast, multi-purpose HTTP probing toolkit with a simple, modular codebase",
+      "Supports hosts, URLs, and CIDR ranges as input with high-concurrency threading",
+      "Smart HTTPS-to-HTTP auto fallback plus retry/backoff handling for WAFs",
+      "Wide range of probes: status code, title, TLS cert, CNAME, tech/CDN detection, screenshots, and more"
+    ]
+  },
+  {
+    "name": "naabu",
+    "repo": "projectdiscovery/naabu",
+    "category": "Network & Attack-Surface Mapping",
+    "stars": 6040,
+    "language": "Go",
+    "license": "MIT",
+    "lastPushed": "2026-07-03",
+    "description": "A fast port scanner written in go with a focus on reliability and simplicity. Designed to be used in combination with other tools for attack surface discovery in bug bounties and pentests",
+    "keyFeatures": [
+      "Fast SYN/CONNECT/UDP probe-based port scanning with automatic IP deduplication for DNS scans",
+      "IPv4/IPv6 support plus passive port enumeration via Shodan InternetDB",
+      "Nmap integration for service discovery and CDN/WAF exclusion",
+      "Multiple input (STDIN/host/IP/CIDR/ASN) and output formats (JSON/TXT/STDOUT)"
+    ]
+  },
+  {
+    "name": "OpenCTI",
+    "repo": "OpenCTI-Platform/opencti",
+    "category": "Threat Intelligence Platforms (TIP)",
+    "stars": 9636,
+    "language": "TypeScript",
+    "license": "none",
+    "lastPushed": "2026-07-06",
+    "description": "Open Cyber Threat Intelligence Platform",
+    "keyFeatures": [
+      "Structures, stores, organizes and visualizes technical and non-technical cyber threat intelligence data",
+      "Knowledge schema based on the STIX2 standard with a GraphQL API and modern web frontend",
+      "Integrates with tools like MISP, TheHive, and the MITRE ATT&CK framework via dedicated connectors",
+      "Supports data import/export in multiple formats (CSV, STIX2 bundles) and inferred relationship analysis"
+    ]
+  },
+  {
+    "name": "MISP",
+    "repo": "MISP/MISP",
+    "category": "Threat Intelligence Platforms (TIP)",
+    "stars": 6395,
+    "language": "PHP",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-07-05",
+    "description": "MISP (core software) - Open Source Threat Intelligence and Sharing Platform",
+    "keyFeatures": [
+      "Open source threat intelligence platform for gathering, storing, and sharing IOCs and threat data",
+      "Enables collaborative sharing communities and automated correlation between events/attributes",
+      "Supports structured data exports (STIX, OpenIOC, CSV) and integrations via API for SOC/CERT workflows",
+      "Includes taxonomy, galaxy, and warning-list frameworks for structured threat classification"
+    ]
+  },
+  {
+    "name": "OpenCVE",
+    "repo": "opencve/opencve",
+    "category": "Threat Intelligence Platforms (TIP)",
+    "stars": 2768,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "lastPushed": "2026-07-02",
+    "description": "Vulnerability Intelligence Platform",
+    "keyFeatures": [
+      "Aggregates CVEs from multiple sources (MITRE, NVD, RedHat, Vulnrichment) with filtering by vendor, product, CVSS, KEV, EPSS, CWE, and publication date",
+      "Subscribe to vendors/products and organize monitoring via projects, organizations, and reusable saved Views",
+      "Tag and prioritize CVEs, assign users/statuses to track analysis progress, with instant email or webhook alerts",
+      "Tracks full change history of CVEs for reporting and collaboration"
+    ]
+  },
+  {
+    "name": "ATT&CK Navigator",
+    "repo": "mitre-attack/attack-navigator",
+    "category": "Threat Intelligence Platforms (TIP)",
+    "stars": 2424,
+    "language": "TypeScript",
+    "license": "Apache-2.0",
+    "lastPushed": "2026-07-02",
+    "description": "Web app that provides basic navigation and annotation of ATT&CK matrices",
+    "keyFeatures": [
+      "Interactive visualization and annotation of MITRE ATT&CK matrices (color coding, comments, numerical scores per technique)",
+      "Custom \"layers\" - tailored views of the ATT&CK knowledge base, created interactively or generated programmatically",
+      "Supports all ATT&CK domains (Enterprise, Mobile, ICS) in a single instance since v4.0, plus older ATT&CK versions",
+      "Hosted live via GitHub Pages, and runnable as a self-hosted or local client-side-only application"
+    ]
+  },
+  {
+    "name": "Yeti",
+    "repo": "yeti-platform/yeti",
+    "category": "Threat Intelligence Platforms (TIP)",
+    "stars": 2001,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "lastPushed": "2026-07-02",
+    "description": "Your Everyday Threat Intelligence — a platform bridging CTI and DFIR by centralizing observables, TTPs, and threat data for analysts and incident responders.",
+    "keyFeatures": [
+      "Bulk search and enrichment of observables (IOCs) with automatic threat context",
+      "Links threats to TTPs, malware, campaigns, and DFIR artifacts (Yara, Sigma, DFIQ)",
+      "Web API for automating queries and integrating with SIEM/DFIR/sandbox tooling",
+      "Supports custom data sources, analytics, and export formats for third-party ingestion"
+    ]
+  },
+  {
+    "name": "OpenTAXII",
+    "repo": "eclecticiq/OpenTAXII",
+    "category": "Threat Intelligence Platforms (TIP)",
+    "stars": 214,
+    "language": "Python",
+    "license": "BSD-3-Clause",
+    "lastPushed": "2026-03-12",
+    "description": "TAXII server implementation in Python from EclecticIQ",
+    "keyFeatures": [
+      "Robust Python implementation of TAXII (Trusted Automated Exchange of Indicator Information) Services with a pythonic API",
+      "Guaranteed compatibility with Cabby, the TAXII client library",
+      "Ships as a Docker image (eclecticiq/opentaxii) for quick deployment with SQLite-backed services/collections/accounts",
+      "Feature-complete and stable; maintained for bug fixes with documentation on ReadTheDocs"
+    ]
+  },
+  {
+    "name": "Ghidra",
+    "repo": "NationalSecurityAgency/ghidra",
+    "category": "Malware Analysis & Sandboxing",
+    "stars": 70509,
+    "language": "Java",
+    "license": "Apache-2.0",
+    "lastPushed": "2026-07-01",
+    "description": "Ghidra is a software reverse engineering (SRE) framework",
+    "keyFeatures": [
+      "Full-featured SRE suite with disassembly, assembly, decompilation, graphing, and scripting",
+      "Supports a wide variety of processor instruction sets and executable formats across Windows, macOS, and Linux",
+      "Runs in both interactive and automated/headless modes for large-scale analysis",
+      "Extensible via custom Ghidra extensions and scripts written in Java or Python"
+    ]
+  },
+  {
+    "name": "YARA",
+    "repo": "VirusTotal/yara",
+    "category": "Malware Analysis & Sandboxing",
+    "stars": 9731,
+    "language": "C",
+    "license": "BSD-3-Clause",
+    "lastPushed": "2026-07-06",
+    "description": "The pattern matching swiss knife for malware researchers (and everyone else)",
+    "keyFeatures": [
+      "Rule-based pattern matching engine using textual or binary string signatures to identify and classify malware families",
+      "Rules support wildcards, case-insensitive strings, regular expressions, and boolean condition logic",
+      "Multi-platform (Windows, Linux, macOS), usable via CLI or embedded in Python scripts through yara-python",
+      "Widely adopted industry-standard tool, now in maintenance mode as its successor YARA-X is developed"
+    ]
+  },
+  {
+    "name": "capa",
+    "repo": "mandiant/capa",
+    "category": "Malware Analysis & Sandboxing",
+    "stars": 6087,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "lastPushed": "2026-06-29",
+    "description": "The FLARE team's open-source tool to identify capabilities in executable files.",
+    "keyFeatures": [
+      "Identifies capabilities (behaviors) in executable files such as PE, ELF, shellcode, and .NET binaries",
+      "Uses a human-readable rule format (like Yara for behaviors) to detect functionality without executing the sample",
+      "Developed by Mandiant's FLARE reverse engineering team for malware triage and analysis",
+      "Extensible rule set and library usable standalone or integrated into other analysis tools"
+    ]
+  },
+  {
+    "name": "Volatility 3",
+    "repo": "volatilityfoundation/volatility3",
+    "category": "Malware Analysis & Sandboxing",
+    "stars": 4230,
+    "language": "Python",
+    "license": "Volatility Software License (custom, non-SPDX)",
+    "lastPushed": "2026-05-26",
+    "description": "Volatility 3: the volatile memory extraction framework — a complete rewrite of the world's most widely used memory forensics tool for extracting digital artifacts from RAM samples.",
+    "keyFeatures": [
+      "Extracts forensic artifacts from volatile memory (RAM) images independent of the running system",
+      "Complete architectural rewrite of Volatility 2 for improved performance and maintainability",
+      "Plugin-based framework (e.g. windows.info) supporting Windows, macOS, and Linux memory samples",
+      "Uses downloadable symbol table packs for accurate OS-specific memory structure parsing"
+    ]
+  },
+  {
+    "name": "rizin",
+    "repo": "rizinorg/rizin",
+    "category": "Malware Analysis & Sandboxing",
+    "stars": 3701,
+    "language": "C",
+    "license": "LGPL-3.0",
+    "lastPushed": "2026-07-06",
+    "description": "UNIX-like reverse engineering framework and command-line toolset.",
+    "keyFeatures": [
+      "Reverse engineering framework forked from radare2 with focus on usability and cleanliness",
+      "Disassembles, debugs, and analyzes binaries across a huge range of architectures (x86, ARM, MIPS, RISC-V, PowerPC, and dozens more)",
+      "Supports a wide array of executable/file formats (ELF, Mach-O, PE, DEX, WASM, coredumps, minidumps, etc.)",
+      "Scriptable command-line hex editor usable for forensic analysis of disk files and binaries"
+    ]
+  },
+  {
+    "name": "CAPEv2",
+    "repo": "kevoreilly/CAPEv2",
+    "category": "Malware Analysis & Sandboxing",
+    "stars": 3325,
+    "language": "Python",
+    "license": "none",
+    "lastPushed": "2026-07-01",
+    "description": "Malware Configuration And Payload Extraction",
+    "keyFeatures": [
+      "Malware sandbox derived from Cuckoo, executing malicious files in an isolated instrumented environment",
+      "Automated dynamic malware unpacking with YARA-based malware classification",
+      "Static and dynamic malware configuration/payload extraction",
+      "Automated debugger programmable via YARA signatures for custom unpacking, anti-sandbox countermeasures, and instruction traces"
+    ]
+  },
+  {
+    "name": "Atomic Red Team",
+    "repo": "redcanaryco/atomic-red-team",
+    "category": "Detection Engineering & Hunting",
+    "stars": 12164,
+    "language": "C",
+    "license": "MIT",
+    "lastPushed": "2026-07-06",
+    "description": "Small and highly portable detection tests based on MITRE's ATT&CK.",
+    "keyFeatures": [
+      "Library of over 1,800 atomic tests mapped directly to MITRE ATT&CK techniques",
+      "Tests can be executed straight from the command line with no installation required",
+      "Pairs with the Invoke-Atomic execution framework for more robust, repeatable testing",
+      "Community-developed and open source, with active Slack community and contribution guide"
+    ]
+  },
+  {
+    "name": "Sigma",
+    "repo": "SigmaHQ/sigma",
+    "category": "Detection Engineering & Hunting",
+    "stars": 10701,
+    "language": "Python",
+    "license": "none",
+    "lastPushed": "2026-07-03",
+    "description": "Main Sigma Rule Repository — a generic, open signature format for describing log events, enabling detection engineers and threat hunters to write and share SIEM-agnostic detection rules.",
+    "keyFeatures": [
+      "Over 3000 community-maintained detection rules covering generic, threat-hunting, emerging-threat, compliance, and placeholder use cases",
+      "Vendor-agnostic rule format convertible to many SIEM/query languages via tools like pySigma/sigma-cli",
+      "Organized rule categories: Generic Detection, Threat Hunting, Emerging Threats, and Compliance (CIS, NIST, ISO 27001)",
+      "Rules released under the Detection Rule License (DRL) 1.1; the Sigma spec itself is public domain"
+    ]
+  },
+  {
+    "name": "Chainsaw",
+    "repo": "WithSecureLabs/chainsaw",
+    "category": "Detection Engineering & Hunting",
+    "stars": 3583,
+    "language": "Rust",
+    "license": "GPL-3.0",
+    "lastPushed": "2026-05-09",
+    "description": "Rapidly Search and Hunt through Windows Forensic Artefacts",
+    "keyFeatures": [
+      "Hunt for threats using Sigma detection rules and custom Chainsaw detection rules",
+      "Search and extract forensic artefacts (Event Logs, MFT) via string matching and regex",
+      "Create execution timelines from Shimcache/Amcache and analyse the SRUM database",
+      "Fast, lightweight, written in Rust; outputs to ASCII table, CSV, or JSON; runs on Windows, macOS, and Linux"
+    ]
+  },
+  {
+    "name": "Hayabusa",
+    "repo": "Yamato-Security/hayabusa",
+    "category": "Detection Engineering & Hunting",
+    "stars": 3240,
+    "language": "Rust",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-07-06",
+    "description": "Hayabusa is a sigma-based threat hunting and fast forensics timeline generator for Windows event logs.",
+    "keyFeatures": [
+      "Sigma-based threat hunting with full Sigma v2 correlation rule support",
+      "Fast forensics timeline generation from Windows event logs",
+      "Written in memory-safe Rust for performance and safety",
+      "Actively maintained by Yamato Security with frequent releases"
+    ]
+  },
+  {
+    "name": "signature-base",
+    "repo": "Neo23x0/signature-base",
+    "category": "Detection Engineering & Hunting",
+    "stars": 2988,
+    "language": "YARA",
+    "license": "none",
+    "lastPushed": "2026-06-17",
+    "description": "YARA signature and IOC database for the LOKI and THOR Lite scanners, maintained by Florian Roth (Neo23x0).",
+    "keyFeatures": [
+      "Large curated collection of high-quality YARA rules and IOCs designed for minimal false positives",
+      "Includes IOC files (CSV), YARA rules, and a Threat Intel API receiver for MISP and OTX",
+      "Powers the LOKI and THOR Lite IOC/YARA scanners",
+      "Licensed under the Detection Rule License (DRL) 1.1 as of Aug 2021, not GitHub-recognized SPDX/OSI license"
+    ]
+  },
+  {
+    "name": "detection-rules",
+    "repo": "elastic/detection-rules",
+    "category": "Detection Engineering & Hunting",
+    "stars": 2647,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "lastPushed": "2026-07-06",
+    "description": "Home for rules used by Elastic Security's Detection Engine — the repository for development, maintenance, testing, validation, and release of detection rules, plus threat hunting queries and Detections-as-Code tooling.",
+    "keyFeatures": [
+      "Curated library of detection rules for Elastic Security's Detection Engine",
+      "Python tooling for rule parsing, validation, and packaging (detection_rules module)",
+      "Detections-as-Code (DaC) pipeline support with unit testing and Kibana API integration",
+      "Threat hunting query package (hunting/) and KQL parsing library"
+    ]
+  },
+  {
+    "name": "GRR Rapid Response",
+    "repo": "google/grr",
+    "category": "SOC, IR & Case Management",
+    "stars": 5079,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "lastPushed": "2026-05-12",
+    "description": "GRR Rapid Response: remote live forensics for incident response",
+    "keyFeatures": [
+      "Python client (agent) deployed on target endpoints for remote live forensics",
+      "Python server infrastructure to manage and communicate with many clients at scale",
+      "Supports incident response workflows like filesystem/endpoint inspection and results review",
+      "Open-source framework maintained by Google for large-scale endpoint investigation"
+    ]
+  },
+  {
+    "name": "Velociraptor",
+    "repo": "Velocidex/velociraptor",
+    "category": "SOC, IR & Case Management",
+    "stars": 4065,
+    "language": "Go",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-06-24",
+    "description": "Digging Deeper.... An advanced digital forensic and incident response (DFIR) / endpoint visibility and collection tool.",
+    "keyFeatures": [
+      "Endpoint visibility and evidence collection using the Velociraptor Query Language (VQL)",
+      "Built-in GUI, frontend, and client for interactive or fleet-wide artifact collection",
+      "Self-contained local triage collectors buildable directly from the GUI",
+      "Server-side deployment options including Docker for scaled incident response"
+    ]
+  },
+  {
+    "name": "TheHive",
+    "repo": "TheHive-Project/TheHive",
+    "category": "SOC, IR & Case Management",
+    "stars": 3931,
+    "language": "Scala",
+    "license": "AGPL-3.0",
+    "lastPushed": "2025-07-25",
+    "description": "Collaborative Security Incident Response and Case Management Platform. Note: repo is archived — versions 3.x/4.x are end-of-life (no longer distributed publicly since 2023), and TheHive is now offered only as a commercial product by StrangeBee.",
+    "keyFeatures": [
+      "Collaborative case and alert management for SOC/CSIRT/CERT teams",
+      "Originally MISP/Cortex-integrated for threat intel enrichment and observable analysis",
+      "Repository archived; 3.x/4.x no longer maintained or downloadable since 2023",
+      "Successor is a closed-source commercial product from StrangeBee"
+    ]
+  },
+  {
+    "name": "Timesketch",
+    "repo": "google/timesketch",
+    "category": "SOC, IR & Case Management",
+    "stars": 3371,
+    "language": "Python",
+    "license": "Apache-2.0",
+    "lastPushed": "2026-06-30",
+    "description": "Collaborative forensic timeline analysis",
+    "keyFeatures": [
+      "Collaborative, web-based timeline analysis for digital forensics and incident response",
+      "Enables multiple analysts to work together on the same timeline/case simultaneously",
+      "Built on Elasticsearch/OpenSearch for fast search and filtering across large event timelines",
+      "Supports timesketch API/CLI and integrates with tools like Plaso for forensic artifact ingestion"
+    ]
+  },
+  {
+    "name": "Cortex",
+    "repo": "TheHive-Project/Cortex",
+    "category": "SOC, IR & Case Management",
+    "stars": 1594,
+    "language": "Scala",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-06-30",
+    "description": "Cortex: a Powerful Observable Analysis and Active Response Engine",
+    "keyFeatures": [
+      "Analyzes observables (IPs, URLs, hashes, domains, emails) one-by-one or in bulk via a web UI",
+      "Automatable through a full REST API for integration into SOC/IR workflows",
+      "Pluggable analyzer ecosystem (cortex-analyzers) for threat intel and active response actions",
+      "Designed as the natural companion to TheHive and MISP for case management and threat intel sharing"
+    ]
+  },
+  {
+    "name": "DFIR IRIS",
+    "repo": "dfir-iris/iris-web",
+    "category": "SOC, IR & Case Management",
+    "stars": 1518,
+    "language": "Python",
+    "license": "LGPL-3.0",
+    "lastPushed": "2026-07-03",
+    "description": "Collaborative Incident Response platform",
+    "keyFeatures": [
+      "Web collaborative platform for incident responders to share technical details during investigations",
+      "Modular architecture: IrisWeb core plus IrisModules extensions (e.g., IOC enrichment via MISP/VirusTotal, EVTX injection into Splunk)",
+      "Dockerized deployment (app, PostgreSQL DB, RabbitMQ, worker, NGINX) for quick setup and upgrades",
+      "Configurable via Azure Key Vault, environment variables, or configuration files"
+    ]
+  },
+  {
+    "name": "CyberChef",
+    "repo": "gchq/CyberChef",
+    "category": "Feeds, Enrichment & Orchestration",
+    "stars": 35265,
+    "language": "JavaScript",
+    "license": "Apache-2.0",
+    "lastPushed": "2026-07-05",
+    "description": "The Cyber Swiss Army Knife - a web app for encryption, encoding, compression and data analysis",
+    "keyFeatures": [
+      "Encoding/decoding operations (Base64, XOR, hex/binary dumps) and encryption/decryption (AES, DES, Blowfish)",
+      "Data compression, decompression, and hashing/checksum calculation",
+      "IPv6 and X.509 certificate parsing plus character encoding conversion",
+      "Drag-and-drop recipe builder combining chained operations in the browser"
+    ]
+  },
+  {
+    "name": "IntelOwl",
+    "repo": "intelowlproject/IntelOwl",
+    "category": "Feeds, Enrichment & Orchestration",
+    "stars": 4613,
+    "language": "Python",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-07-06",
+    "description": "IntelOwl: manage your Threat Intelligence at scale",
+    "keyFeatures": [
+      "Aggregates dozens of online analyzers and malware analysis tools behind a single API request for IPs, domains, URLs, hashes and files",
+      "Built to scale out and speed up threat intelligence collection with a pluggable analyzer/connector architecture",
+      "Pyintelowl client and web UI for orchestrating enrichment jobs and visualizing results",
+      "Docker-based deployment with active CI/CD, CodeQL, and OpenSSF Scorecard security tooling"
+    ]
+  },
+  {
+    "name": "msticpy",
+    "repo": "microsoft/msticpy",
+    "category": "Feeds, Enrichment & Orchestration",
+    "stars": 1977,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "lastPushed": "2026-06-08",
+    "description": "Microsoft Threat Intelligence Security Tools",
+    "keyFeatures": [
+      "Query log data from multiple sources (Sentinel, Splunk, Defender for Endpoint, Microsoft Graph, etc.)",
+      "Enrich data with Threat Intelligence feeds, geolocation, and Azure resource data",
+      "Extract Indicators of Activity (IoA) from logs and unpack encoded data",
+      "Visualize data via interactive timelines, process trees, and multi-dimensional Morph Charts"
+    ]
+  },
+  {
+    "name": "IntelMQ",
+    "repo": "certtools/intelmq",
+    "category": "Feeds, Enrichment & Orchestration",
+    "stars": 1118,
+    "language": "Python",
+    "license": "AGPL-3.0",
+    "lastPushed": "2026-04-28",
+    "description": "A solution for IT security teams (CERTs/CSIRTs) for collecting and processing security threat intelligence feeds using a message queuing protocol.",
+    "keyFeatures": [
+      "Message-queue based pipeline for collecting, parsing, and processing security feeds",
+      "Modular bots architecture with collectors, parsers, experts (enrichment) and outputs",
+      "Harmonized data format for normalizing events across many feed sources",
+      "Built for CERT/CSIRT incident response and threat intel automation workflows"
+    ]
+  },
+  {
+    "name": "ThreatIngestor",
+    "repo": "InQuest/ThreatIngestor",
+    "category": "Feeds, Enrichment & Orchestration",
+    "stars": 921,
+    "language": "Python",
+    "license": "GPL-2.0",
+    "lastPushed": "2026-05-26",
+    "description": "Extract and aggregate threat intelligence.",
+    "keyFeatures": [
+      "Extracts IOCs (IPs, domains, YARA signatures) from threat feeds like Twitter, RSS, and sitemap/XML sources",
+      "Plugin architecture with pluggable source (input) and operator (output) modules",
+      "Integrates out-of-the-box with ThreatKB, MISP, AWS SQS, and Beanstalk for existing workflows",
+      "Runs continuously, polling configured sources on a set interval (default 15 minutes)"
+    ]
+  },
+  {
+    "name": "PyMISP",
+    "repo": "MISP/PyMISP",
+    "category": "Feeds, Enrichment & Orchestration",
+    "stars": 483,
+    "language": "Python",
+    "license": "BSD-2-Clause",
+    "lastPushed": "2026-06-29",
+    "description": "Python library to access MISP platforms via their REST API, for fetching, adding, and updating threat intelligence events and attributes.",
+    "keyFeatures": [
+      "Fetch, add, and update MISP events and attributes via REST API",
+      "Create structured MISP objects (PE/ELF/Mach-O file objects, email objects, URL objects)",
+      "Optional integrations for VirusTotal enrichment, OpenIOC import, and PDF report generation",
+      "Supports import/export workflows for threat intel feeds and orchestration"
+    ]
+  },
+  {
+    "name": "STIX-shifter",
+    "repo": "opencybersecurityalliance/stix-shifter",
+    "category": "Feeds, Enrichment & Orchestration",
+    "stars": 263,
+    "language": "Python",
+    "license": "NOASSERTION",
+    "lastPushed": "2026-06-26",
+    "description": "Open source Python library that connects to disparate security data repositories using STIX Patterning and returns results as normalized STIX Observations.",
+    "keyFeatures": [
+      "Translates STIX 2 Patterns into native queries for products like SIEMs, EDR, threat intel platforms, and data lakes",
+      "Transforms native query results into normalized STIX 2 Observations for consistent cross-source analysis",
+      "Modular connector architecture (stix-shifter-modules-<name>) supporting many data source integrations (e.g. QRadar)",
+      "Provides a bundled command-line utility for pattern translation and query transmission"
+    ]
+  }
+]
