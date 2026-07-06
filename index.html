@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OSINT &amp; Threat Intelligence Toolkit</title>
+<meta name="description" content="A curated, verifiable map of the best open-source recon and threat-intel tooling on GitHub">
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --bg-elevated: #ffffff;
+    --surface: #ffffff;
+    --surface-hover: #f0f2f5;
+    --border: #e0e3e8;
+    --text: #1b1f24;
+    --text-muted: #5b6472;
+    --text-faint: #848d99;
+    --accent: #2f6fed;
+    --accent-contrast: #ffffff;
+    --accent-soft: #e7effe;
+    --chip-bg: #eef0f3;
+    --chip-active-bg: #2f6fed;
+    --chip-active-text: #ffffff;
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.06), 0 1px 1px rgba(20, 24, 30, 0.04);
+    --shadow-hover: 0 6px 16px rgba(20, 24, 30, 0.10), 0 2px 6px rgba(20, 24, 30, 0.06);
+    --stale-amber: #9a6300;
+    --stale-red: #c4342b;
+    --stale-amber-bg: #fff3d6;
+    --stale-red-bg: #fde5e3;
+    --focus-ring: #2f6fed;
+    --radius: 12px;
+    color-scheme: light;
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0e1116;
+    --bg-elevated: #151a21;
+    --surface: #171c24;
+    --surface-hover: #1e242e;
+    --border: #2a313d;
+    --text: #e8ebef;
+    --text-muted: #a3adba;
+    --text-faint: #7c8695;
+    --accent: #5b9dff;
+    --accent-contrast: #08111f;
+    --accent-soft: #17273f;
+    --chip-bg: #1e242e;
+    --chip-active-bg: #5b9dff;
+    --chip-active-text: #08111f;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+    --stale-amber: #e8b344;
+    --stale-red: #ff8a80;
+    --stale-amber-bg: #3a2d0d;
+    --stale-red-bg: #3a1614;
+    --focus-ring: #5b9dff;
+    color-scheme: dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1116;
+      --bg-elevated: #151a21;
+      --surface: #171c24;
+      --surface-hover: #1e242e;
+      --border: #2a313d;
+      --text: #e8ebef;
+      --text-muted: #a3adba;
+      --text-faint: #7c8695;
+      --accent: #5b9dff;
+      --accent-contrast: #08111f;
+      --accent-soft: #17273f;
+      --chip-bg: #1e242e;
+      --chip-active-bg: #5b9dff;
+      --chip-active-text: #08111f;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3);
+      --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
+      --stale-amber: #e8b344;
+      --stale-red: #ff8a80;
+      --stale-amber-bg: #3a2d0d;
+      --stale-red-bg: #3a1614;
+      --focus-ring: #5b9dff;
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  code, .mono { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  header.page-header {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 2.25rem 1.5rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .header-text h1 {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .header-text p.tagline {
+    margin: 0 0 0.6rem;
+    color: var(--text-muted);
+    font-size: 1rem;
+    max-width: 60ch;
+  }
+
+  .header-meta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+  }
+
+  .header-meta span {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+  }
+
+  .theme-toggle {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  }
+
+  .theme-toggle:hover {
+    background: var(--surface-hover);
+    box-shadow: var(--shadow-hover);
+  }
+
+  .theme-toggle:active { transform: translateY(1px); }
+
+  .controls-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.9rem 1.5rem;
+  }
+
+  .controls-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1 1 240px;
+    min-width: 180px;
+  }
+
+  .search-wrap svg {
+    position: absolute;
+    left: 0.7rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    color: var(--text-faint);
+    pointer-events: none;
+  }
+
+  #search {
+    width: 100%;
+    padding: 0.55rem 0.75rem 0.55rem 2.1rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.92rem;
+  }
+
+  #search::placeholder { color: var(--text-faint); }
+
+  select#sort {
+    padding: 0.55rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .chips {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    flex: 1 1 100%;
+    margin-top: 0.7rem;
+  }
+
+  .chip {
+    border: 1px solid var(--border);
+    background: var(--chip-bg);
+    color: var(--text-muted);
+    padding: 0.32rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
+  }
+
+  .chip:hover { background: var(--surface-hover); }
+
+  .chip[aria-pressed="true"] {
+    background: var(--chip-active-bg);
+    color: var(--chip-active-text);
+    border-color: var(--chip-active-bg);
+  }
+
+  main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 1.5rem;
+  }
+
+  .summary-line {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin: 0.25rem 0 1.75rem;
+  }
+
+  section.category {
+    margin-bottom: 2.75rem;
+  }
+
+  .category-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.3rem;
+  }
+
+  .category-head h2 {
+    font-size: 1.2rem;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+
+  .count-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: 0.12rem 0.55rem;
+  }
+
+  .category-blurb {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin: 0 0 1.1rem;
+    max-width: 80ch;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.15rem;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.15s ease, transform 0.12s ease, border-color 0.15s ease;
+  }
+
+  .card:hover, .card:focus-visible {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  }
+
+  .card-title-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .card h3 {
+    margin: 0;
+    font-size: 1.03rem;
+    font-weight: 700;
+  }
+
+  .card .repo-line {
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    word-break: break-all;
+  }
+
+  .card .description {
+    font-size: 0.87rem;
+    color: var(--text-muted);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: var(--chip-bg);
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    line-height: 1.35;
+  }
+
+  .stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.2rem;
+    font-size: 0.75rem;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    padding: 0.22rem 0.55rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .pill.stale-amber { color: var(--stale-amber); background: var(--stale-amber-bg); border-color: transparent; }
+  .pill.stale-red { color: var(--stale-red); background: var(--stale-red-bg); border-color: transparent; }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+  }
+
+  footer.site-footer {
+    max-width: 1180px;
+    margin: 1rem auto 3rem;
+    padding: 1.25rem 1.5rem 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-faint);
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  footer.site-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  footer.site-footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .card-grid { grid-template-columns: 1fr; }
+    header.page-header { padding: 1.5rem 1rem 1rem; }
+    .controls-bar { padding: 0.75rem 1rem; }
+    main { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="header-text">
+    <h1>OSINT &amp; Threat Intelligence Toolkit</h1>
+    <p class="tagline">A curated, verifiable map of the best open-source recon and threat-intel tooling on GitHub</p>
+    <div class="header-meta">
+      <span id="total-count-badge">34 tools</span>
+      <span>Generated 2026-07-06</span>
+    </div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light and dark theme">
+    <span id="theme-toggle-icon" aria-hidden="true">🌙</span>
+    <span id="theme-toggle-label">Dark</span>
+  </button>
+</header>
+
+<div class="controls-bar">
+  <div class="controls-inner">
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="search" placeholder="Search tools, repos, descriptions…" aria-label="Search tools by name, repo, or description">
+    </div>
+    <select id="sort" aria-label="Sort tools">
+      <option value="stars-desc">Sort: Stars (high to low)</option>
+      <option value="alpha">Sort: Alphabetical</option>
+    </select>
+    <div class="chips" id="category-chips" role="group" aria-label="Filter by category"></div>
+  </div>
+</div>
+
+<main>
+  <p class="summary-line" id="summary-line"></p>
+  <div id="results"></div>
+</main>
+
+<footer class="site-footer">
+  <p>Star counts, languages, licenses, and update dates were verified against the live GitHub API at generation time.<br>
+  Maintained by <a href="https://github.com/recuon" target="_blank" rel="noopener noreferrer">recuon</a> on GitHub.</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var DATA = {
+    "categories": [
+      {
+        "name": "OSINT Recon & Footprinting",
+        "blurb": "All-in-one automation frameworks that fan out across DNS, WHOIS, certs, and public sources to map a target's footprint.",
+        "tools": [
+          { "name": "SpiderFoot", "repo": "smicallef/spiderfoot", "stars": 19274, "language": "Python", "license": "MIT", "lastPushed": "2026-04-13", "description": "SpiderFoot automates OSINT for threat intelligence and mapping your attack surface.", "keyFeatures": ["Automates OSINT collection by integrating with a huge range of data sources and modules", "Built-in web-based UI for running scans and visually navigating results", "Maps attack surface and gathers threat intelligence for targets (domains, IPs, emails, etc.)", "Usable as a standalone tool or embedded via its API/CLI for automation workflows"] },
+          { "name": "theHarvester", "repo": "laramies/theHarvester", "stars": 16723, "language": "Python", "license": "none", "lastPushed": "2026-06-29", "description": "E-mails, subdomains and names Harvester - OSINT tool for gathering names, emails, IPs, subdomains, and URLs during the reconnaissance phase of red team assessments and penetration tests.", "keyFeatures": ["Aggregates OSINT data (emails, subdomains, IPs, names, URLs) on a target domain using dozens of passive modules (e.g. Baidu, Censys, crt.sh, Shodan)", "Designed for the reconnaissance stage of red team engagements and penetration tests", "Installable via uv/pip with an active Python (3.12+) codebase and CI pipeline", "Optional REST API routes protected via THEHARVESTER_API_KEY header auth"] },
+          { "name": "Amass", "repo": "owasp-amass/amass", "stars": 14806, "language": "Go", "license": "none", "lastPushed": "2026-04-17", "description": "In-depth attack surface mapping and asset discovery", "keyFeatures": ["Network mapping of attack surfaces via OSINT and active reconnaissance", "External asset discovery and subdomain enumeration", "OWASP flagship project with active Discord community and Docker image", "Extensive data source integrations for footprinting"] },
+          { "name": "recon-ng", "repo": "lanmaster53/recon-ng", "stars": 5751, "language": "Python", "license": "GPL-3.0", "lastPushed": "2024-11-01", "description": "Open Source Intelligence gathering tool aimed at reducing the time spent harvesting information from open sources.", "keyFeatures": ["Full-featured OSINT reconnaissance framework with a Metasploit-like modular CLI interface", "Marketplace-style module installation for web-based, API-based, and dorking search modules", "Independent database interaction for storing, exporting, and correlating harvested recon data", "Built-in reporting engine and interactive help system for building custom collection workflows"] }
+        ]
+      },
+      {
+        "name": "Username, People & Email Enumeration",
+        "blurb": "Pivot from a single identifier — a handle, email, or phone number — to accounts and identities across hundreds of sites.",
+        "tools": [
+          { "name": "Sherlock", "repo": "sherlock-project/sherlock", "stars": 86126, "language": "Python", "license": "MIT", "lastPushed": "2026-07-06", "description": "Hunt down social media accounts by username across social networks", "keyFeatures": ["Searches for a given username across a large number of social media and web platforms", "Command-line tool written in Python for OSINT and username enumeration", "Reports which platforms have a matching account for the target username", "Actively maintained with a dedicated project site (sherlockproject.xyz)"] },
+          { "name": "Maigret", "repo": "soxoj/maigret", "stars": 34970, "language": "Python", "license": "MIT", "lastPushed": "2026-07-06", "description": "Collect a dossier on a person by username from 3000+ sites", "keyFeatures": ["Searches 3000+ sites for a given username to build a person dossier", "Generates HTML/PDF/JSON reports with discovered profiles and extracted metadata", "Recursive search that extracts data (emails, links, other usernames) from found pages to expand the search", "CLI, Docker, and API/web interface usage"] },
+          { "name": "PhoneInfoga", "repo": "sundowndev/phoneinfoga", "stars": 16792, "language": "Go", "license": "GPL-3.0", "lastPushed": "2026-01-06", "description": "Information gathering framework for phone numbers", "keyFeatures": ["Gathers information on phone numbers using OSINT techniques (carrier, line type, country)", "Cross-references numbers against search engines and social media/footprint sources", "Modular scanner architecture (local, numverify, googlesearch, etc.)", "Ships as a CLI tool and a web client/API for interactive investigations"] },
+          { "name": "holehe", "repo": "megadose/holehe", "stars": 11597, "language": "Python", "license": "GPL-3.0", "lastPushed": "2024-09-10", "description": "Checks if an email address is registered on various websites (Twitter, Instagram, etc.) by exploiting forgotten-password functionality.", "keyFeatures": ["Checks an email against 120+ sites/services for account registration", "Exploits 'forgot password' flows to detect account existence without alerting the target", "CLI tool usable in OSINT investigations and email verification workflows", "Modular architecture allowing easy addition of new site modules"] },
+          { "name": "WhatsMyName", "repo": "WebBreacher/WhatsMyName", "stars": 2643, "language": "Python", "license": "CC-BY-SA-4.0", "lastPushed": "2026-06-24", "description": "Community-maintained dataset of 700+ websites for finding accounts by username — powers OSINT and digital footprint tools.", "keyFeatures": ["JSON dataset (wmn-data.json) of hundreds of sites for username existence checks, built to minimize false positives", "Created in 2015 by Micah 'WebBreacher' Hoffman, now a widely-used community-maintained OSINT dataset", "Powers numerous third-party username enumeration tools and web search front-ends", "Actively maintained via community contributions with a documented contribution process"] }
+        ]
+      },
+      {
+        "name": "Network & Attack-Surface Mapping",
+        "blurb": "Fast scanners and discovery tooling for enumerating hosts, subdomains, services, and exploitable exposures at scale.",
+        "tools": [
+          { "name": "nuclei", "repo": "projectdiscovery/nuclei", "stars": 29515, "language": "Go", "license": "MIT", "lastPushed": "2026-07-06", "description": "A fast, customizable vulnerability scanner powered by the global security community and built on a simple YAML-based DSL, enabling collaboration to tackle trending vulnerabilities on the internet. It helps find vulnerabilities in applications, APIs, networks, DNS, and cloud configurations.", "keyFeatures": ["YAML-based DSL for defining vulnerability and misconfiguration templates", "Community-powered template library covering trending CVEs and exposures", "Scans across applications, APIs, networks, DNS, and cloud configurations", "Fast, highly customizable scanning engine written in Go"] },
+          { "name": "masscan", "repo": "robertdavidgraham/masscan", "stars": 25835, "language": "C", "license": "AGPL-3.0", "lastPushed": "2026-04-23", "description": "TCP port scanner that spews SYN packets asynchronously, capable of scanning the entire Internet in under 5 minutes.", "keyFeatures": ["Asynchronous, stateless SYN-scanning engine for extremely high-speed port scans across huge IP ranges", "Can scan the entire public IPv4 Internet in under 5 minutes at full rate", "Supports flexible target/port ranges with nmap-like CLI syntax and output formats (XML, JSON, binary)", "Includes banner-checking and adjustable transmission rate control to manage scan speed and bandwidth"] },
+          { "name": "subfinder", "repo": "projectdiscovery/subfinder", "stars": 13966, "language": "Go", "license": "MIT", "lastPushed": "2026-07-03", "description": "Fast passive subdomain enumeration tool.", "keyFeatures": ["Fast and powerful resolution and wildcard elimination modules", "Curated passive sources to maximize subdomain discovery results", "Multiple output formats supported (JSON, file, stdout)", "STDIN/STDOUT support for easy pipeline/workflow integration"] },
+          { "name": "Nmap", "repo": "nmap/nmap", "stars": 13150, "language": "C", "license": "none", "lastPushed": "2026-07-02", "description": "Nmap - the Network Mapper. GitHub mirror of the official SVN repository for the free and open-source network discovery and security auditing tool.", "keyFeatures": ["Host discovery and port scanning across large networks", "Service/version detection and OS fingerprinting", "Scriptable interaction via the Nmap Scripting Engine (NSE)", "Includes Zenmap GUI front-end for visual scan management"] },
+          { "name": "httpx", "repo": "projectdiscovery/httpx", "stars": 10136, "language": "Go", "license": "MIT", "lastPushed": "2026-07-06", "description": "httpx is a fast and multi-purpose HTTP toolkit that allows running multiple probes using the retryablehttp library.", "keyFeatures": ["Fast, multi-purpose HTTP probing toolkit with a simple, modular codebase", "Supports hosts, URLs, and CIDR ranges as input with high-concurrency threading", "Smart HTTPS-to-HTTP auto fallback plus retry/backoff handling for WAFs", "Wide range of probes: status code, title, TLS cert, CNAME, tech/CDN detection, screenshots, and more"] }
+        ]
+      },
+      {
+        "name": "Threat Intelligence Platforms (TIP)",
+        "blurb": "Central platforms for storing, correlating, and sharing indicators, actors, and campaigns using STIX/TAXII and MISP formats.",
+        "tools": [
+          { "name": "OpenCTI", "repo": "OpenCTI-Platform/opencti", "stars": 9636, "language": "TypeScript", "license": "none", "lastPushed": "2026-07-06", "description": "Open Cyber Threat Intelligence Platform", "keyFeatures": ["Structures, stores, organizes and visualizes technical and non-technical cyber threat intelligence data", "Knowledge schema based on the STIX2 standard with a GraphQL API and modern web frontend", "Integrates with tools like MISP, TheHive, and the MITRE ATT&CK framework via dedicated connectors", "Supports data import/export in multiple formats (CSV, STIX2 bundles) and inferred relationship analysis"] },
+          { "name": "MISP", "repo": "MISP/MISP", "stars": 6395, "language": "PHP", "license": "AGPL-3.0", "lastPushed": "2026-07-05", "description": "MISP (core software) - Open Source Threat Intelligence and Sharing Platform", "keyFeatures": ["Open source threat intelligence platform for gathering, storing, and sharing IOCs and threat data", "Enables collaborative sharing communities and automated correlation between events/attributes", "Supports structured data exports (STIX, OpenIOC, CSV) and integrations via API for SOC/CERT workflows", "Includes taxonomy, galaxy, and warning-list frameworks for structured threat classification"] },
+          { "name": "OpenCVE", "repo": "opencve/opencve", "stars": 2768, "language": "Python", "license": "NOASSERTION", "lastPushed": "2026-07-02", "description": "Vulnerability Intelligence Platform", "keyFeatures": ["Aggregates CVEs from multiple sources (MITRE, NVD, RedHat, Vulnrichment) with filtering by vendor, product, CVSS, KEV, EPSS, CWE, and publication date", "Subscribe to vendors/products and organize monitoring via projects, organizations, and reusable saved Views", "Tag and prioritize CVEs, assign users/statuses to track analysis progress, with instant email or webhook alerts", "Tracks full change history of CVEs for reporting and collaboration"] },
+          { "name": "Yeti", "repo": "yeti-platform/yeti", "stars": 2001, "language": "Python", "license": "Apache-2.0", "lastPushed": "2026-07-02", "description": "Your Everyday Threat Intelligence — a platform bridging CTI and DFIR by centralizing observables, TTPs, and threat data for analysts and incident responders.", "keyFeatures": ["Bulk search and enrichment of observables (IOCs) with automatic threat context", "Links threats to TTPs, malware, campaigns, and DFIR artifacts (Yara, Sigma, DFIQ)", "Web API for automating queries and integrating with SIEM/DFIR/sandbox tooling", "Supports custom data sources, analytics, and export formats for third-party ingestion"] }
+        ]
+      },
+      {
+        "name": "Malware Analysis & Sandboxing",
+        "blurb": "Static, dynamic, and memory-forensics tooling to classify samples, detect capabilities, and extract IOCs.",
+        "tools": [
+          { "name": "YARA", "repo": "VirusTotal/yara", "stars": 9731, "language": "C", "license": "BSD-3-Clause", "lastPushed": "2026-07-06", "description": "The pattern matching swiss knife for malware researchers (and everyone else)", "keyFeatures": ["Rule-based pattern matching engine using textual or binary string signatures to identify and classify malware families", "Rules support wildcards, case-insensitive strings, regular expressions, and boolean condition logic", "Multi-platform (Windows, Linux, macOS), usable via CLI or embedded in Python scripts through yara-python", "Widely adopted industry-standard tool, now in maintenance mode as its successor YARA-X is developed"] },
+          { "name": "capa", "repo": "mandiant/capa", "stars": 6087, "language": "Python", "license": "Apache-2.0", "lastPushed": "2026-06-29", "description": "The FLARE team's open-source tool to identify capabilities in executable files.", "keyFeatures": ["Identifies capabilities (behaviors) in executable files such as PE, ELF, shellcode, and .NET binaries", "Uses a human-readable rule format (like Yara for behaviors) to detect functionality without executing the sample", "Developed by Mandiant's FLARE reverse engineering team for malware triage and analysis", "Extensible rule set and library usable standalone or integrated into other analysis tools"] },
+          { "name": "Volatility 3", "repo": "volatilityfoundation/volatility3", "stars": 4230, "language": "Python", "license": "Volatility Software License (custom, non-SPDX)", "lastPushed": "2026-05-26", "description": "Volatility 3: the volatile memory extraction framework — a complete rewrite of the world's most widely used memory forensics tool for extracting digital artifacts from RAM samples.", "keyFeatures": ["Extracts forensic artifacts from volatile memory (RAM) images independent of the running system", "Complete architectural rewrite of Volatility 2 for improved performance and maintainability", "Plugin-based framework (e.g. windows.info) supporting Windows, macOS, and Linux memory samples", "Uses downloadable symbol table packs for accurate OS-specific memory structure parsing"] },
+          { "name": "CAPEv2", "repo": "kevoreilly/CAPEv2", "stars": 3325, "language": "Python", "license": "none", "lastPushed": "2026-07-01", "description": "Malware Configuration And Payload Extraction", "keyFeatures": ["Malware sandbox derived from Cuckoo, executing malicious files in an isolated instrumented environment", "Automated dynamic malware unpacking with YARA-based malware classification", "Static and dynamic malware configuration/payload extraction", "Automated debugger programmable via YARA signatures for custom unpacking, anti-sandbox countermeasures, and instruction traces"] }
+        ]
+      },
+      {
+        "name": "Detection Engineering & Hunting",
+        "blurb": "Vendor-neutral rule formats and hunting content to turn intelligence into deployable detections across SIEMs and EDRs.",
+        "tools": [
+          { "name": "Sigma", "repo": "SigmaHQ/sigma", "stars": 10701, "language": "Python", "license": "none", "lastPushed": "2026-07-03", "description": "Main Sigma Rule Repository — a generic, open signature format for describing log events, enabling detection engineers and threat hunters to write and share SIEM-agnostic detection rules.", "keyFeatures": ["Over 3000 community-maintained detection rules covering generic, threat-hunting, emerging-threat, compliance, and placeholder use cases", "Vendor-agnostic rule format convertible to many SIEM/query languages via tools like pySigma/sigma-cli", "Organized rule categories: Generic Detection, Threat Hunting, Emerging Threats (e.g., APT/zero-day campaigns), and Compliance (CIS, NIST, ISO 27001)", "Rules released under the Detection Rule License (DRL) 1.1; the Sigma spec itself is public domain"] },
+          { "name": "Hayabusa", "repo": "Yamato-Security/hayabusa", "stars": 3240, "language": "Rust", "license": "AGPL-3.0", "lastPushed": "2026-07-06", "description": "Hayabusa (隼) is a sigma-based threat hunting and fast forensics timeline generator for Windows event logs.", "keyFeatures": ["Sigma-based threat hunting with full Sigma v2 correlation rule support", "Fast forensics timeline generation from Windows event logs", "Written in memory-safe Rust for performance and safety", "Actively maintained by Yamato Security with frequent releases"] },
+          { "name": "signature-base", "repo": "Neo23x0/signature-base", "stars": 2988, "language": "YARA", "license": "none", "lastPushed": "2026-06-17", "description": "YARA signature and IOC database for the LOKI and THOR Lite scanners, maintained by Florian Roth (Neo23x0).", "keyFeatures": ["Large curated collection of high-quality YARA rules and IOCs designed for minimal false positives", "Includes IOC files (CSV), YARA rules, and a Threat Intel API receiver for MISP and OTX", "Powers the LOKI and THOR Lite IOC/YARA scanners", "Licensed under the Detection Rule License (DRL) 1.1 as of Aug 2021, not GitHub-recognized SPDX/OSI license"] },
+          { "name": "detection-rules", "repo": "elastic/detection-rules", "stars": 2647, "language": "Python", "license": "NOASSERTION", "lastPushed": "2026-07-06", "description": "Home for rules used by Elastic Security's Detection Engine — the repository for development, maintenance, testing, validation, and release of detection rules, plus threat hunting queries and Detections-as-Code tooling.", "keyFeatures": ["Curated library of detection rules for Elastic Security's Detection Engine", "Python tooling for rule parsing, validation, and packaging (detection_rules module)", "Detections-as-Code (DaC) pipeline support with unit testing and Kibana API integration", "Threat hunting query package (hunting/) and KQL parsing library"] }
+        ]
+      },
+      {
+        "name": "SOC, IR & Case Management",
+        "blurb": "Collaborative platforms for incident response, alert triage, timeline forensics, and endpoint hunting.",
+        "tools": [
+          { "name": "Velociraptor", "repo": "Velocidex/velociraptor", "stars": 4065, "language": "Go", "license": "AGPL-3.0", "lastPushed": "2026-06-24", "description": "Digging Deeper.... An advanced digital forensic and incident response (DFIR) / endpoint visibility and collection tool.", "keyFeatures": ["Endpoint visibility and evidence collection using the Velociraptor Query Language (VQL)", "Built-in GUI, frontend, and client for interactive or fleet-wide artifact collection", "Self-contained local triage collectors buildable directly from the GUI", "Server-side deployment options including Docker for scaled incident response"] },
+          { "name": "TheHive", "repo": "TheHive-Project/TheHive", "stars": 3931, "language": "Scala", "license": "AGPL-3.0", "lastPushed": "2025-07-25", "description": "Collaborative Security Incident Response and Case Management Platform. Note: repo is archived — versions 3.x/4.x are end-of-life (no longer distributed publicly since 2023), and TheHive is now offered only as a commercial product by StrangeBee.", "keyFeatures": ["Collaborative case and alert management for SOC/CSIRT/CERT teams", "Originally MISP/Cortex-integrated for threat intel enrichment and observable analysis", "Repository archived; 3.x/4.x no longer maintained or downloadable since 2023", "Successor is a closed-source commercial product from StrangeBee"] },
+          { "name": "Timesketch", "repo": "google/timesketch", "stars": 3371, "language": "Python", "license": "Apache-2.0", "lastPushed": "2026-06-30", "description": "Collaborative forensic timeline analysis", "keyFeatures": ["Collaborative, web-based timeline analysis for digital forensics and incident response", "Enables multiple analysts to work together on the same timeline/case simultaneously", "Built on Elasticsearch/OpenSearch for fast search and filtering across large event timelines", "Supports timesketch API/CLI and integrates with tools like Plaso for forensic artifact ingestion"] },
+          { "name": "Cortex", "repo": "TheHive-Project/Cortex", "stars": 1594, "language": "Scala", "license": "AGPL-3.0", "lastPushed": "2026-06-30", "description": "Cortex: a Powerful Observable Analysis and Active Response Engine", "keyFeatures": ["Analyzes observables (IPs, URLs, hashes, domains, emails) one-by-one or in bulk via a web UI", "Automatable through a full REST API for integration into SOC/IR workflows", "Pluggable analyzer ecosystem (cortex-analyzers) for threat intel and active response actions", "Designed as the natural companion to TheHive and MISP for case management and threat intel sharing"] }
+        ]
+      },
+      {
+        "name": "Feeds, Enrichment & Orchestration",
+        "blurb": "Pipelines and libraries that ingest, normalize, enrich, and automate the flow of indicators between tools.",
+        "tools": [
+          { "name": "IntelOwl", "repo": "intelowlproject/IntelOwl", "stars": 4613, "language": "Python", "license": "AGPL-3.0", "lastPushed": "2026-07-06", "description": "IntelOwl: manage your Threat Intelligence at scale", "keyFeatures": ["Aggregates dozens of online analyzers and malware analysis tools behind a single API request for IPs, domains, URLs, hashes and files", "Built to scale out and speed up threat intelligence collection with a pluggable analyzer/connector architecture", "Pyintelowl client and web UI for orchestrating enrichment jobs and visualizing results", "Docker-based deployment with active CI/CD, CodeQL, and OpenSSF Scorecard security tooling"] },
+          { "name": "IntelMQ", "repo": "certtools/intelmq", "stars": 1118, "language": "Python", "license": "AGPL-3.0", "lastPushed": "2026-04-28", "description": "A solution for IT security teams (CERTs/CSIRTs) for collecting and processing security threat intelligence feeds using a message queuing protocol.", "keyFeatures": ["Message-queue based pipeline for collecting, parsing, and processing security feeds", "Modular bots architecture with collectors, parsers, experts (enrichment) and outputs", "Harmonized data format for normalizing events across many feed sources", "Built for CERT/CSIRT incident response and threat intel automation workflows"] },
+          { "name": "ThreatIngestor", "repo": "InQuest/ThreatIngestor", "stars": 921, "language": "Python", "license": "GPL-2.0", "lastPushed": "2026-05-26", "description": "Extract and aggregate threat intelligence.", "keyFeatures": ["Extracts IOCs (IPs, domains, YARA signatures) from threat feeds like Twitter, RSS, and sitemap/XML sources", "Plugin architecture with pluggable source (input) and operator (output) modules", "Integrates out-of-the-box with ThreatKB, MISP, AWS SQS, and Beanstalk for existing workflows", "Runs continuously, polling configured sources on a set interval (default 15 minutes)"] },
+          { "name": "PyMISP", "repo": "MISP/PyMISP", "stars": 483, "language": "Python", "license": "BSD-2-Clause", "lastPushed": "2026-06-29", "description": "Python library to access MISP platforms via their REST API, for fetching, adding, and updating threat intelligence events and attributes.", "keyFeatures": ["Fetch, add, and update MISP events and attributes via REST API", "Create structured MISP objects (PE/ELF/Mach-O file objects, email objects, URL objects)", "Optional integrations for VirusTotal enrichment, OpenIOC import, and PDF report generation", "Supports import/export workflows for threat intel feeds and orchestration"] }
+        ]
+      }
+    ]
+  };
+
+  var TOTAL_TOOLS = DATA.categories.reduce(function (sum, c) { return sum + c.tools.length; }, 0);
+  var TOTAL_CATEGORIES = DATA.categories.length;
+
+  document.getElementById("total-count-badge").textContent = TOTAL_TOOLS + " tools";
+
+  // ---------- Theme handling ----------
+  var root = document.documentElement;
+  var toggleBtn = document.getElementById("theme-toggle");
+  var toggleIcon = document.getElementById("theme-toggle-icon");
+  var toggleLabel = document.getElementById("theme-toggle-label");
+
+  function systemPrefersDark() {
+    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+
+  function applyTheme(theme) {
+    if (theme === "dark" || theme === "light") {
+      root.setAttribute("data-theme", theme);
+    } else {
+      root.removeAttribute("data-theme");
+    }
+    var effectiveDark = theme === "dark" || (theme !== "light" && systemPrefersDark());
+    toggleIcon.textContent = effectiveDark ? "☀️" : "🌙";
+    toggleLabel.textContent = effectiveDark ? "Light" : "Dark";
+    toggleBtn.setAttribute("aria-pressed", effectiveDark ? "true" : "false");
+  }
+
+  var storedTheme = null;
+  try { storedTheme = localStorage.getItem("osint-dashboard-theme"); } catch (e) {}
+  applyTheme(storedTheme);
+
+  toggleBtn.addEventListener("click", function () {
+    var current = root.getAttribute("data-theme");
+    var effectiveDark = current === "dark" || (!current && systemPrefersDark());
+    var next = effectiveDark ? "light" : "dark";
+    applyTheme(next);
+    try { localStorage.setItem("osint-dashboard-theme", next); } catch (e) {}
+  });
+
+  // ---------- Star formatting ----------
+  function formatStars(n) {
+    if (n >= 1000) {
+      var v = n / 1000;
+      var s = v.toFixed(1);
+      if (s.slice(-2) === ".0") s = s.slice(0, -2);
+      return s + "k";
+    }
+    return String(n);
+  }
+
+  // ---------- Relative date / staleness ----------
+  function relativeUpdated(dateStr) {
+    var then = new Date(dateStr + "T00:00:00Z");
+    var now = new Date();
+    var diffMs = now - then;
+    var diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+    var label;
+    if (diffDays < 0) {
+      label = "updated " + dateStr;
+    } else if (diffDays === 0) {
+      label = "updated today";
+    } else if (diffDays === 1) {
+      label = "updated yesterday";
+    } else if (diffDays < 30) {
+      label = "updated " + diffDays + "d ago";
+    } else if (diffDays < 365) {
+      label = "updated " + Math.round(diffDays / 30) + "mo ago";
+    } else {
+      label = "updated " + (Math.round(diffDays / 365 * 10) / 10) + "y ago";
+    }
+    var staleClass = "";
+    if (diffDays >= 365) staleClass = "stale-red";
+    else if (diffDays >= 180) staleClass = "stale-amber";
+    return { label: label, staleClass: staleClass, exact: dateStr };
+  }
+
+  function displayLicense(lic) {
+    if (!lic || lic === "none") return "No license";
+    return lic;
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  // ---------- Flatten tools with category ref ----------
+  var allTools = [];
+  DATA.categories.forEach(function (cat) {
+    cat.tools.forEach(function (t) {
+      t._category = cat.name;
+      allTools.push(t);
+    });
+  });
+
+  // ---------- Category chips ----------
+  var chipsContainer = document.getElementById("category-chips");
+  var activeCategories = new Set(); // empty = all
+
+  function renderChips() {
+    var html = '<button type="button" class="chip" data-cat="__all__" aria-pressed="' + (activeCategories.size === 0 ? "true" : "false") + '">All</button>';
+    DATA.categories.forEach(function (cat) {
+      var pressed = activeCategories.has(cat.name);
+      html += '<button type="button" class="chip" data-cat="' + escapeHtml(cat.name) + '" aria-pressed="' + (pressed ? "true" : "false") + '">' + escapeHtml(cat.name) + '</button>';
+    });
+    chipsContainer.innerHTML = html;
+  }
+
+  chipsContainer.addEventListener("click", function (e) {
+    var btn = e.target.closest(".chip");
+    if (!btn) return;
+    var cat = btn.getAttribute("data-cat");
+    if (cat === "__all__") {
+      activeCategories.clear();
+    } else {
+      if (activeCategories.has(cat)) activeCategories.delete(cat);
+      else activeCategories.add(cat);
+    }
+    renderChips();
+    render();
+  });
+
+  // ---------- Search & sort ----------
+  var searchInput = document.getElementById("search");
+  var sortSelect = document.getElementById("sort");
+  var resultsEl = document.getElementById("results");
+  var summaryEl = document.getElementById("summary-line");
+
+  function matchesSearch(tool, q) {
+    if (!q) return true;
+    q = q.toLowerCase();
+    return (
+      tool.name.toLowerCase().indexOf(q) !== -1 ||
+      tool.repo.toLowerCase().indexOf(q) !== -1 ||
+      tool.description.toLowerCase().indexOf(q) !== -1 ||
+      tool._category.toLowerCase().indexOf(q) !== -1
+    );
+  }
+
+  function cardHtml(tool) {
+    var updated = relativeUpdated(tool.lastPushed);
+    var tags = (tool.keyFeatures || []).slice(0, 4).map(function (f) {
+      return '<span class="tag">' + escapeHtml(f) + "</span>";
+    }).join("");
+    var updatedPillClass = "pill" + (updated.staleClass ? " " + updated.staleClass : "");
+    return (
+      '<a class="card" href="https://github.com/' + encodeURI(tool.repo) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(tool.name) + " on GitHub, " + escapeHtml(tool.repo) + '">' +
+        '<div class="card-title-row"><h3>' + escapeHtml(tool.name) + "</h3></div>" +
+        '<div class="repo-line mono">' + escapeHtml(tool.repo) + "</div>" +
+        '<p class="description">' + escapeHtml(tool.description) + "</p>" +
+        '<div class="tags">' + tags + "</div>" +
+        '<div class="stat-row">' +
+          '<span class="pill">⭐ ' + formatStars(tool.stars) + "</span>" +
+          '<span class="pill"><span class="lang-dot" aria-hidden="true"></span>' + escapeHtml(tool.language) + "</span>" +
+          '<span class="pill">' + escapeHtml(displayLicense(tool.license)) + "</span>" +
+          '<span class="' + updatedPillClass + '" title="' + escapeHtml(updated.exact) + '">' + updated.label + "</span>" +
+        "</div>" +
+      "</a>"
+    );
+  }
+
+  function render() {
+    var q = searchInput.value.trim();
+    var sortMode = sortSelect.value;
+    var visibleCount = 0;
+    var html = "";
+
+    DATA.categories.forEach(function (cat) {
+      if (activeCategories.size > 0 && !activeCategories.has(cat.name)) return;
+
+      var filtered = cat.tools.filter(function (t) { return matchesSearch(t, q); });
+      if (filtered.length === 0) return;
+
+      filtered = filtered.slice();
+      if (sortMode === "alpha") {
+        filtered.sort(function (a, b) { return a.name.localeCompare(b.name); });
+      } else {
+        filtered.sort(function (a, b) { return b.stars - a.stars; });
+      }
+
+      visibleCount += filtered.length;
+
+      html +=
+        '<section class="category" aria-labelledby="cat-' + escapeHtml(cat.name.replace(/[^a-zA-Z0-9]+/g, "-")) + '">' +
+          '<div class="category-head"><h2 id="cat-' + escapeHtml(cat.name.replace(/[^a-zA-Z0-9]+/g, "-")) + '">' + escapeHtml(cat.name) + '</h2><span class="count-badge">' + filtered.length + '</span></div>' +
+          '<p class="category-blurb">' + escapeHtml(cat.blurb) + "</p>" +
+          '<div class="card-grid">' + filtered.map(cardHtml).join("") + "</div>" +
+        "</section>";
+    });
+
+    if (visibleCount === 0) {
+      html = '<div class="empty-state">No tools match your search. Try a different keyword or clear filters.</div>';
+    }
+
+    resultsEl.innerHTML = html;
+    summaryEl.textContent = visibleCount + " of " + TOTAL_TOOLS + " tools shown across " + TOTAL_CATEGORIES + " categories";
+  }
+
+  searchInput.addEventListener("input", render);
+  sortSelect.addEventListener("change", render);
+
+  renderChips();
+  render();
+})();
+</script>
+</body>
+</html>
