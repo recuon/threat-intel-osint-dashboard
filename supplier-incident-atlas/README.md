@@ -24,7 +24,7 @@ CSVの空欄は**未確認**の意味。推定区間が確定値であるよう�
 
 ## 制約
 
-初版の基準日: 2026-11-18。直近の横断調査: 2026-11-19（掲載16事故）。掲載は網羅的全件ではない。シナリオの前提は公開資料をもとにした仮定であり、メーカー公式の流出法人数を示すものではない。過失や損害の程度の格付けではない。
+初版の基準日: 2026-11-18。直近の横断調査: 2026-11-20（掲載20事故）。掲載は網羅的全件ではない。シナリオの前提は公開資料をもとにした仮定であり、メーカー公式の流出法人数を示すものではない。過失や損害の程度の格付けではない。
 
 ## 2026-11-19 日次レビュー（第一回）
 
@@ -35,3 +35,11 @@ CSVの空欄は**未確認**の意味。推定区間が確定値であるよう�
 - 同じベンダーのソニックムーブ2案件は提供基盤と侵害日時の異なる独立事故。SMBC-CF提携先銀行やラフール再販元の個別報告は別事故として追加しない。
 
 一次資料は各事故の `source` フィールドを参照。海外調査機関が原観測の報告者となるケースは、その出典と公式ベンダー公表の区別を詳細欄で示す。
+
+## 2026-11-20 日次レビュー（第二回）
+
+- **新規4事故**：OPENLOGI（共通出荷代行から多数の荷主へ波及、発表総法人は未確定）、TERILOGY-CLOUDTRIAGE（6社で不審セッションを確認、流出未確認）、SECURITIZE-JP（11/2時点で発行体3社分の個人情報持ち出しを確認、金融機関などの総数未確認）、KLUE-OAUTH（6月侵害の見落とし補完、Huntress/HackerOne/OneTrustの3社が一次公表、総数未確認）。発行体3社およびKlueの3社は**確認下限**で、全影響先数ではない。
+- **既存続報2事故**：PLAIDは11/19 11時の提供元進捗と三菱UFJ銀行11/18（約650万件）、タイミー11/19（求人事業者担当者最大226,662名分）の一次公表を追加。両社の人数・レコード数は事業者数へ換算しない。CONNECTWISE-SKYKICKは11/19 19:20 UTCの全機能復旧告知に更新。テナントごとの再認可・バックアップ成功確認がまだ必要。
+- **訂正0、推定数値変更0**。公式確認対象6社は不審アクセスの対象であり、データ流出の確認6社ではない。オープンロジについてpiyologが11/19時点に収集した「99件の関連公表」は、公表主体・再委託・ブランド等の重複可能性があるため、**99社として掲載していない**。https://piyolog.hatenadiary.jp/entry/2026/11/19/183634
+- 注目すべき公表の一次資料：オープンロジ第2報 https://corp.openlogi.com/news/notice/notice-20261117/ 、鹿島アントラーズ https://www.antlers.co.jp/blogs/news/261118ytxj2u 、Brave group https://bravegroup.co.jp/news/12429/ 、テリロジーHD https://www.terilogy-hd.com/news/8168.html 、NTTデータ https://www.nttdata.com/global/ja/news/release/2026/110200/ 、Huntress https://www.huntress.com/blog/klue-breach-investigation 、HackerOne https://www.hackerone.com/security-updates/klue-2026-06 、OneTrust https://www.onetrust.com/blog/update-from-onetrust-on-klue-salesforce-security-incident/ 。
+- 11/17のChatPlus不正アクセスは引き続き、複数の独立顧客企業のデータ影響を一次情報だけでは確認できず、追加を保留。https://www.chatplus.jp/news/news20261117/
