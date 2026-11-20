@@ -43,3 +43,32 @@ CSVの空欄は**未確認**の意味。推定区間が確定値であるよう�
 - **訂正0、推定数値変更0**。公式確認対象6社は不審アクセスの対象であり、データ流出の確認6社ではない。オープンロジについてpiyologが11/19時点に収集した「99件の関連公表」は、公表主体・再委託・ブランド等の重複可能性があるため、**99社として掲載していない**。https://piyolog.hatenadiary.jp/entry/2026/11/19/183634
 - 注目すべき公表の一次資料：オープンロジ第2報 https://corp.openlogi.com/news/notice/notice-20261117/ 、鹿島アントラーズ https://www.antlers.co.jp/blogs/news/261118ytxj2u 、Brave group https://bravegroup.co.jp/news/12429/ 、テリロジーHD https://www.terilogy-hd.com/news/8168.html 、NTTデータ https://www.nttdata.com/global/ja/news/release/2026/110200/ 、Huntress https://www.huntress.com/blog/klue-breach-investigation 、HackerOne https://www.hackerone.com/security-updates/klue-2026-06 、OneTrust https://www.onetrust.com/blog/update-from-onetrust-on-klue-salesforce-security-incident/ 。
 - 11/17のChatPlus不正アクセスは引き続き、複数の独立顧客企業のデータ影響を一次情報だけでは確認できず、追加を保留。https://www.chatplus.jp/news/news20261117/
+
+
+## 2026-11-21 公表確認下限と波及階層の追加
+
+一次資料で裏付けた新しい比較軸を追加した。
+
+- `public_lower_count`, `public_lower_unit`, `public_lower_kind`, `public_lower_basis`: **公表を確認できる対象組織の下限・分類別の公式数値**。例えばPLAIDの754社は「外部連携用認証情報」分類の対象社数で、全区分の重複除外後のユニーク社数ではない。Cuenoteの42社は10/26に新たに通知した42社で、49システムの最終法人数ではない。個別公表を集計した下限と、ベンダー公式の対象社数を同じ解釈で扱わない。
+- `tenant_count`, `tenant_unit`, `tenant_basis`: 例えばConnectWiseに関するHuntressの162 **M365テナント不正サインイン**。162法人の情報持ち出しを意味しない。
+- `indirect_lower_count`, `indirect_lower_unit`, `indirect_lower_basis`: 取引先への**間接波及**。Fireworks AI→Notion→Bloom→Bloom取引先61社は、Notion利用企業6法人（一次公表下限）と階層が異なり足し合わせない。
+- `impact_path`: 共通サプライヤーから直接委託先、再委託・中間事業者、最終利用組織への伝播関係。
+- `tracking_status`: `included` は多社への影響が一次資料等で裏付けられた事故、`monitor` は多社での漏洩確定という要件がまだ満たされない監視候補。ページの掲載行数と「集計対象事故件数」を混同しない。
+
+[impact-evidence.csv](impact-evidence.csv) は事故IDを親とする**企業・集計区分の一次資料台帳**。事業者名、関係層（`direct_customer`, `downstream_customer`, `indirect_customer`, `indirect_aggregate`, `official_category`, `technical_system`等）、状態（`confirmed_exfiltration`, `possible_exposure`等）、出典URL、公表日を保存する。個別企業の公表を確認したら**親事故IDにひも付けて増やす**。同じ事故で別IDを新設しない。
+
+### 今回の更新と根拠
+
+- **PLAID**：旧60〜320社の根拠薄弱な試算を廃止。11/20公式 [KARTE調査結果](https://plaid.co.jp/news/20261120/) の認証情報754社、連携データ570社、行動解析487社、キャッシュ最大409社を分類別の公式数として保持。重複しており合算不可。終了済み契約も一部対象。
+- **CUENOTE**：旧35〜49社の推計を廃止。10/26の [公式事故時系列](https://www.cuenote.jp/support/news-incident.html) で追加通知42社が確認できる。11/11の [第三報](https://www.ymir.co.jp/info/ymir-information20261111.html) で流出確認49専用システム、延べ47,864,147件。42社＋49システムは合算不可。
+- **OPENLOGI**：発表で実名照合できる4法人（鹿島アントラーズ、Brave group、WFS、THINKR）を一次資料に紐付け。うち3法人は流出を確認、WFSは自社情報の流出可能性。THINKRは [アカツキ／CRAYONを介した再委託](https://thinkr.jp/update/1203/) として別層に分類。4法人は荷主全体の総数ではない。
+- **SMBC-CF**：千葉興業銀行と十八親和銀行の2行を一次公表下限として登録。提携金融機関全体の数は未確認。
+- **CONNECTWISE-SKYKICK**：162 M365テナントの不正サインインを **テナント観測** として分離し、情報持ち出しの確定数として表示しない。
+- **FIREWORKS-NOTION**：新規。Notion公式によると影響はNotionワークスペースの **1%未満**（絶対数は未公表）。マネーフォワードグループ3法人、ジーニー／JAPAN AIの2法人、Bloomの1法人＝計6法人が一次公表で確認できる。Bloomが通知した取引先61社は別階層。すべての利用企業の確定被害・漏洩を意味しない。[Notionの事故通知](https://www.notion.com/en-gb/security/advisories/security-incident-involving-a-third-party-ai-vendor)。
+- **INFCURION-WALLET**：新規の **監視候補**。11/20第二報で一部提供先の個人情報最大約25万件の流出を確認したが、複数の別法人の情報流出が確認できるか不明。他提供先での緊急点検は漏洩確定と別。[提供元第二報](https://infcurion.com/news/news-20261120_002/)。
+
+前回公開20件から、新規事故本計上1件＋監視候補1件を追加してCSV計22行（**本計上21件、監視候補1件**）。一事故1レコード。公表確認下限・技術テナント・間接波及は単位・階層・判定が異なるので、横断合計は作らない。
+
+### 日次更新の注意
+
+日次更新時は **data.csv の39列を削らず維持**し、`impact-evidence.csv` の個別公表根拠も追加・更新する。 `public_lower_count` は「独立影響法人数の確定総数」を意味しない。 `tracking_status=monitor` は多社漏洩ランキングには入れず、根拠が揃ったときだけincludedへ変更する。HTMLの内蔵レコードはオフラインフォールバックとしてCSVと同期し、表示スクリプト・波及階層の機能を壊さない。訂正時は日付と理由を必ず記録する。
