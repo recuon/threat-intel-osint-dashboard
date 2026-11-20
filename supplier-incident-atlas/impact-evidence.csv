@@ -20,7 +20,7 @@
 "FIREWORKS-NOTION","株式会社Bloom","downstream_customer","possible_exposure","1","法人","2026-11-17","https://www.blm.co.jp/news-261117.html","同社Notion AIチャットの流出可能性・取引先へ通知"
 "FIREWORKS-NOTION","Bloomの影響取引先（社名非公表）","indirect_aggregate","confirmed_notification","61","社（集計値）","2026-11-17","https://www.blm.co.jp/news-261117.html","Bloomが特定し11/13に報告した61取引先。個社名未公表、他6社と加算不可"
 "SCALA-IASK","シチズン時計株式会社","direct_customer","possible_exposure","1","法人","2026-10-06","https://citizen.jp/news/2026/20261006.html","10/6公表の取得可能性。11/13提供元確定4社との名寄せは未確認"
-"SCALA-IASK","auじぶん銀行株式会社","service_user","no_confirmed_impact","1","法人","2026-10-09","https://spw.prod-at.allocation.jibunbank.co.jp/announcement/2026/pdf/1009_01/20261009_01.pdf","最大5社の対象外と公表。被害企業数には加えない"
+"SCALA-IASK","auじぶん銀行株式会社","service_user","no_confirmed_impact","0","法人","2026-10-09","https://spw.prod-at.allocation.jibunbank.co.jp/announcement/2026/pdf/1009_01/20261009_01.pdf","最大5社の対象外と公表。被害企業数には加えない"
 "PLAID","株式会社ZOZO","direct_customer","confirmed_exfiltration","1","法人","2026-11-20","https://corp.zozo.com/information/20261120-482917/","KARTE上の顧客情報漏洩を確認"
 "PLAID","株式会社マネーフォワード","direct_customer","confirmed_exfiltration","1","法人","2026-11-20","https://corp.moneyforward.com/news/info/20261120-mf-press-1/","KARTE事故。Notion/Fireworks事故と区別"
 "PLAID","マネーフォワードエックス株式会社","direct_customer","confirmed_exfiltration","1","法人","2026-11-20","https://corp.moneyforward.com/news/info/20261120-mf-press-1/","KARTE事故。別法人"
