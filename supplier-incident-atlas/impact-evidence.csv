@@ -38,3 +38,6 @@
 "OPENLOGI","LiLz株式会社","direct_customer","possible_exposure","1","法人","2026-11-11","https://support.lilz.jp/hc/ja/articles/64165344976153-2026-11-11-%E9%87%8D%E8%A6%81-%E5%BD%93%E7%A4%BE%E3%81%AE%E7%89%A9%E6%B5%81%E5%A7%94%E8%A8%97%E5%85%88%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E6%83%85%E5%A0%B1%E6%B5%81%E5%87%BA%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6-%E7%AC%AC%E4%BA%8C%E5%A0%B1","オープンロジ出荷データに自社配送情報が含まれる可能性"
 "OPENLOGI","株式会社CELLORB","direct_customer","confirmed_exfiltration","1","法人","2026-11-17","https://cellorb.jp/news/2026/11/17/1005/","対象販売サイトは調査中。複数ECブランドを法人として重複加算しない"
 "OPENLOGI","認定NPO法人ReBit","direct_customer","possible_exposure","1","法人","2026-11-13","https://rebitlgbt.org/news/17634/","オープンロジの漏洩を受け自団体の顧客への影響を調査中"
+"CUENOTE","ソースネクスト株式会社","direct_customer","possible_exposure","1","法人","2026-10-27","https://download.www.sourcenext.com/support/i/2026/1027_info/","Cuenote FC不正アクセスによる自社顧客情報の漏洩可能性。自社サイトの別事故と混同しない"
+"INFCURION-WALLET","株式会社ジャックス","service_user","under_investigation","1","法人","2026-11-20","https://www.jaccs.co.jp/information/emerge/page_01212.html","SPLIEおよびハウスPayのサービス停止。自社顧客情報の漏洩対象該当性は調査中。監視候補のまま"
+"GOQ","電材ドットコム（楽天市場店）","store_operator","possible_exposure","","店舗","2026-11-20","https://www.rakuten.co.jp/joint-service/contents/202611_GOQincident/","GoQSystem利用店舗の個別公表。運営独立法人名は一次ページ上で未確認のため実名法人数へ加算しない"
