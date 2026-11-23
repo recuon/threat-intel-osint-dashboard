@@ -139,3 +139,14 @@ CSVの空欄は**未確認**の意味。推定区間が確定値であるよう�
 - 更新された一次公表例： [IVRy 11/20の75件訂正](https://shinbara.ivry.jp/corporate/news/4wu8ght2l2/)、[Nstock 11/20](https://nstock.co.jp/news/20261120-security-notice)、[リバスタ第二報11/20](https://www.rvsta.co.jp/news/20261120-2/)、[Safieグループ](https://safie.co.jp/news/5207/)、[VAZ／オープンロジ](https://vaz.co.jp/topics/7820/)、[サイボウズ／Cuenote](https://topics.cybozu.co.jp/news/2026/10/28-19557.html)。各一次資料の完全なリンクは `impact-evidence.csv` に保持。
 - 今回追加した被害企業側の**一次公表は24法人・団体行**（Fireworks20、Cuenote3、オープンロジ1）。公表日には11月23日より前の発見漏れも含まれる。新規のサプライヤー公式事故発表は確認できず。影響なしの新規一次確認は0件（サイボウズが自社製品の非影響を明示するが、同社の配信先情報は流出確認）。
 - 影響データ規模指標は2行追加（IVRy取引先75件・Cuenoteのサイボウズ23,392件）。いずれも親事故の総数には加算しない。
+
+## 2026-11-24 日次レビュー（サプライヤー名からの逆引き）
+
+掲載28事案（正式25、監視3）のサプライヤー名・製品名を再検索。新しい一次公表を照合できた事案の根拠と規模を更新した。個別公表は公表時点の判定で記録し、提供元の総数や別の委託階層に加算しない。
+
+- **SCALA-IASK**：11/13の持ち出し確認は4社・延べ552,179件。各社の公表値を5指標として追加。提供元は社名別の確定内訳を公表していない。四国銀行と岩手銀行は大和証券の提携先として案内した2行。東武鉄道の「閲覧・取得の形跡は確認されていない」とする公表は二次資料から把握したが、元の公式PDFが404のため一次資料台帳への追加を保留した。[提供元第2報](https://scala-com.jp/news/2026/11-1/)、[東武鉄道の公表を引用した記事](https://itpostjp.com/security/scala-communications-i-ask-five-companies-tobu-railway/)
+- **STUDIO**：自社サイトにStudioを利用した株式会社スカラ、電通、ヴェオリア・ジャパン、伊那市、美唄市の公表を追加。公表下限は13→18主体。美唄市はFoundingBaseを介した再委託の事例。株式会社スカラの2フォームは29件と109件で、i-askとは別の事案。[スカラの公表](https://www.scalagrp.jp/news/20261020scala)、[美唄市の公表](https://www.city.bibai.hokkaido.jp/soshiki/3/32854.html)
+- **SMBC-CF**：流出を一次公表した提携銀行は2→7行。提供元の初報の最大320,118名と、対象行が公表した確定値・上限をそれぞれ掲載。[提供元初報](https://www.smbc-cf.com/news/data/2026/11/news_20261105.pdf)、[筑波銀行第2報](https://www.tsukubabank.co.jp/cms/article/df287fec49a6059039801f8f441b2dd0c1154c3c/)
+- **ARARA／OPENLOGI**：漏えいを公表したアララ関連の実名主体は5→7。オープンロジの実名公表は15→17主体（漏えい確認、可能性、調査中を含む）。[TKC](https://www.tkc.jp/news/2026/20261109_1/)、[三井住友銀行](https://www2.smbc.co.jp/news/pdf/j20261105_02.pdf)、[パイロット](https://www.pilot.co.jp/information/01/2026/11/11/post_243.html)、[BONX](https://bonx.co/ja/news-release/20261118-2/)
+- **CHATPLUS**：3社が自社利用者情報の影響可能性を公表。ワールドは対象該当性を調査中。複数法人での持ち出しは未確認のため監視を継続。[THK](https://www.thk.com/jp/ja/news/company/article-19112026-1.html)、[コグニビジョン](https://www.cognivision.jp/news/2026/post_288/)、[トーセイ・コミュニティ](https://www.tosei-com.co.jp/news/detail/75)
+- **CUENOTE／GOQ／ATLINK／COMSBI／KLUE**：Peachの8,997,106件や河合楽器の漏えい未確認、エムボックスと俵IVFクリニックの個別公表、COMSBIの基盤別公表、Klueの提供元調査報告とLink11の顧客側公表を追加。[一次資料台帳](impact-evidence.csv)、[規模指標](impact-metrics.csv)
