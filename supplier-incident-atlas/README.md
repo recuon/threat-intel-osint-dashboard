@@ -150,3 +150,14 @@ CSVの空欄は**未確認**の意味。推定区間が確定値であるよう�
 - **ARARA／OPENLOGI**：漏えいを公表したアララ関連の実名主体は5→7。オープンロジの実名公表は15→17主体（漏えい確認、可能性、調査中を含む）。[TKC](https://www.tkc.jp/news/2026/20261109_1/)、[三井住友銀行](https://www2.smbc.co.jp/news/pdf/j20261105_02.pdf)、[パイロット](https://www.pilot.co.jp/information/01/2026/11/11/post_243.html)、[BONX](https://bonx.co/ja/news-release/20261118-2/)
 - **CHATPLUS**：3社が自社利用者情報の影響可能性を公表。ワールドは対象該当性を調査中。複数法人での持ち出しは未確認のため監視を継続。[THK](https://www.thk.com/jp/ja/news/company/article-19112026-1.html)、[コグニビジョン](https://www.cognivision.jp/news/2026/post_288/)、[トーセイ・コミュニティ](https://www.tosei-com.co.jp/news/detail/75)
 - **CUENOTE／GOQ／ATLINK／COMSBI／KLUE**：Peachの8,997,106件や河合楽器の漏えい未確認、エムボックスと俵IVFクリニックの個別公表、COMSBIの基盤別公表、Klueの提供元調査報告とLink11の顧客側公表を追加。[一次資料台帳](impact-evidence.csv)、[規模指標](impact-metrics.csv)
+
+
+## 2026-11-24 日次レビュー：未収録の共通基盤と間接波及
+
+- 正式計上3件追加：PRESTIGE-PCS（最大約550万件は重複込み、一次公表5主体中確認4・可能性1）、OPTIMIZELY-WEB（複数顧客プロジェクトの権限侵害、顧客の5%未満、取得件数未確認）、OPEN-BIZROBO（約560社・約1000アカウントの認証サーバー情報への不正アクセス。流出確定社数ではない）。提供元一次資料：https://www.prestigein.com/Portals/0/pdf/NEWS/news_20261102_01.pdf ／ https://support.optimizely.com/hc/en-us/articles/50521849710605-Security-Advisory-Web-Experimentation-Security-Incident-Updated-November-19-2026 ／ https://open.co.jp/blog/202611181500/。
+- 監視候補2件追加：ILL-SAAS-TEST（11/22公表、検証環境漏えい、複数独立顧客の影響未確定）、SAGAWA-TRACKING（最大約5323万件の可能性、個別荷主2社は調査中）。https://www.ill.co.jp/info/261122/ ／ https://www2.sagawa-exp.co.jp/information/detail/430/。佐川の別サービス11/20報告と合算しない。
+- OPENLOGIの実名一次公表17→23主体（確定・可能性・調査中混在）、間接波及1→3法人（THINKR、東映アニメーション、グレイ・パーカー・サービス。23の内数）。直接契約を終了したカバーの過去出荷情報も追加。https://corp.toei-anim.co.jp/ja/press/press815000909226104953.html ／ https://shop.hololivepro.com/blogs/news/shipping_openlogi_databreach_20261117。ユナイテッドアローズ国内公式サイトは影響なしだが法人全体は影響あり。
+- ARARA：TKC経由の四日市市・大阪市（確認）、真岡市（可能性）を間接波及3自治体として登録。直接側の7公表主体に合算しない。https://www.city.yokkaichi.lg.jp/www/contents/1795153896952/index.html ／ https://www.city.osaka.lg.jp/ictsenryakushitsu/page/0000691479.html ／ https://www.city.moka.lg.jp/kakuka/digital_senryaku/oshirase/27550.html。
+- SONIC-COMSBI-SAAS：日宣とむさしの村の2法人を確認下限とする。https://www.musashinomura.co.jp/news/20261121/。FIREWORKS-NOTION：エナーバンク追加で30→31法人。Bloom取引先61社は別階層で維持。
+- 推定レンジ変更0。新規サプライヤー公式事故資料5本、被害企業・自治体側の追加一次資料17本（うち佐川2社は該当性調査中）、影響なしの範囲確認1件（UA国内公式サイト、法人単位ではない）。既存9事故の最新公表を検索した範囲では、上記以外に反映可能な変更なし。網羅確認ではない。
+- CSV 33行（正式28／監視5）、証拠165行、規模指標48行。39/9/11列と親事故ID、フォールバックを検証。
