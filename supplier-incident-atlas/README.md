@@ -179,5 +179,7 @@ CSVの空欄は**未確認**の意味。推定区間が確定値であるよう�
 - FIREWORKS-NOTION：31→34法人（SecureNavi、SmartHR、ワンキャリア）。日建設計の漏えい判定を公式文言に合わせ訂正。Bloom間接61社は維持。
 - ARARA：直接・共同公表8→10主体（アソビュー、バルテスHD）、間接4→7自治体・法人（電子チケット販売経由の3法人、可能性）。各階層を合算しない。
 - PLAID：TSI、HYBESの実名証拠追加。PRESTIGE-PCS：5→6主体、IDOM 694件は漏えい疑い。LENDYとは独立。
-- 一次資料：https://www.dentsudigital.co.jp/news/updates/services/2026-1112-001112 ／ https://idom-inc.com/news/press/20261106-38772.html ／ https://www.okinawa-bank.co.jp/news_release/2026110600037/file_contents/nr.pdf ／ https://www.media4u.co.jp/news/3391。新規サプライヤー起点事故の一次発表4本（電通初報・第二報、メディア4u初報・最終報）、被害・利用側追加資料15本（共同公表・同一URLを一意に数える）。新規影響なしの独立法人確認0。推定レンジ変更なし。
-- 合計：正式31／監視5、証拠192行、規模指標65行。全期間・海外・既存案件の検索を実施したが全候補の網羅は未確認。出典が取得できないものは保留。
+- 一次資料：https://www.dentsudigital.co.jp/news/updates/services/2026-1112-001112 ／ https://idom-inc.com/news/press/20261106-38772.html ／ https://www.okinawa-bank.co.jp/news_release/2026110600037/file_contents/nr.pdf ／ https://www.media4u.co.jp/news/3391。新規サプライヤー起点事故の一次発表4本（電通初報・第二報、メディア4u初報・最終報）、被害・利用側追加資料16本（共同公表・同一URLを一意に数える）。新規影響なしの独立法人確認0。推定レンジ変更なし。
+- 合計：正式31／監視5、証拠193行、規模指標66行。全期間・海外・既存案件の検索を実施したが全候補の網羅は未確認。出典が取得できないものは保留。
+
+- 追加照合：BLASTMAILのアルク第3報（11/13）で約32万件の漏えい確認、実名公表下限2→3法人。ほかのメールマガジンの漏えい未確認は法人全体の影響なしと数えない。https://www.alc.co.jp/2026/10/23/1996 。国立美術館の公表日は月のみ、メディア4uの不正SMS送信280件は流出ではなく悪用確認として分類。
