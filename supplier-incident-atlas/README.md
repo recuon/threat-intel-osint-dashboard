@@ -183,3 +183,14 @@ CSVの空欄は**未確認**の意味。推定区間が確定値であるよう�
 - 合計：正式31／監視5、証拠193行、規模指標66行。全期間・海外・既存案件の検索を実施したが全候補の網羅は未確認。出典が取得できないものは保留。
 
 - 追加照合：BLASTMAILのアルク第3報（11/13）で約32万件の漏えい確認、実名公表下限2→3法人。ほかのメールマガジンの漏えい未確認は法人全体の影響なしと数えない。https://www.alc.co.jp/2026/10/23/1996 。国立美術館の公表日は月のみ、メディア4uの不正SMS送信280件は流出ではなく悪用確認として分類。
+
+
+## 2026-11-26 日次レビュー
+
+- 新規正式計上3事故：NORTHFLANK-SECRETS（顧客チーム1.5%・シークレット値1.8%）、RAILWAY-ENV（最大約10万ワークスペース・1.85%、潜在範囲）、ZEABUR-OCT（専用サーバー101、DBコンテナ865で読み取り操作、取得量不明）。いずれも独立法人数への換算はしない。一次資料：https://northflank.com/blog/incident-report-october-30-security-incident ／ https://blog.railway.com/p/preliminary-report-october-security-incident ／ https://zeabur.com/en-US/blogs/october-2026-security-incident。
+- 監視追加 RINGBELL-GIFT：東京都の委託サイト不正アクセス・11/25ギフト利用不能等は関連調査中。他の独立提供先への波及未確認。https://www.metro.tokyo.lg.jp/information/press/2026/11/2026112507。
+- PLAID：JCB・ミスターマックス・グロービス・雨風太陽、間接2法人（福井銀行・福井カード）を追加。JCB最大15万件は管理コード、MrMax最大1,806,330件、雨風太陽は消費者944,885人、生産者等10,164人、追加31名、アドレス959,452件（別単位）。公式754/570/487/409社は維持し合算しない。https://www.jcb.co.jp/release/pdf/oshirase_20261125.pdf ／ https://www.mrmaxhd.co.jp/release/upload/20261125_release.pdf ／ https://ame-kaze-taiyo.jp/news/2026112516004585/。
+- FIREWORKS-NOTION：実名公表下限34→33法人。L is B、ナンバーナインを追加。Bloom間接61社は維持。Fireworks 11/17公式で別々の2侵害と判明したが、Notionの対象データの帰属が公式に明示されないため別IDの追加・Cursor等の合算は保留。https://fireworks.ai/security-bulletins。
+- E-STORE：PFU最終報76,318名（受注78,873件と別単位）、キングジムの過去利用サイトの公表を追加。実名公表下限2法人、7,858店舗に加算しない。https://www.pfu.ricoh.com/news/2026/news261124.html。
+- ARARA：10主体と表示文言の不一致を訂正。既存の間接7主体は変更なし。推定レンジ変更なし。サイバーエージェント／サツドラは他の独立顧客波及の一次確認がなく未掲載。スカラの公式4社は維持。今回の全期間・既存事故の調査は部分的であり、全候補の網羅は未確認。
+- 正式34／監視6、証拠208行（+15）、規模指標73行（+7）。39/9/11列、ID・参照整合性、CSV再パース、HTML内蔵データの一致を検証。JS：構文確認済み。
