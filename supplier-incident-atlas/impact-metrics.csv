@@ -73,7 +73,7 @@
 "PLAID","株式会社雨風太陽／メールアドレス","email_addresses","959452","addresses","confirmed_exfiltration","different_dataset","plaid-ame-address","2026-11-25","https://ame-kaze-taiyo.jp/news/2026112516004585/","退会者・変更重複含む。人数と合算しない"
 "E-STORE","株式会社PFU／PFUダイレクト本店","affected_people","76318","persons","confirmed_exfiltration","company_subset","estore-pfu-people","2026-11-24","https://www.pfu.ricoh.com/news/2026/news261124.html","対象受注78,873件を個人単位で重複除外。親事故と合算不可。"
 "TMERDE-ECOPOINT","エコ・アクション・ポイント","affected_people","98000","persons","maximum_possible","supplier_total","tmerde-people","2026-11-24","https://www.tm-erde.co.jp/2026/11/24/3533/","退会者等を含む最大対象者数。"
-"ARCADIA-RAIDEN","不正送信メール（10/13）","unauthorized_messages","1423428","messages","confirmed_exfiltration","different_dataset","arcadia-abuse","2026-10-21","https://raiden.site.ktaiwork.jp/","不正送信確認数であり情報流出件数ではない。"
+"ARCADIA-RAIDEN","不正送信メール（10/13）","unauthorized_messages","1423428","messages","confirmed_abuse","attack_abuse","arcadia-abuse","2026-10-21","https://raiden.site.ktaiwork.jp/","不正送信確認数であり情報流出件数ではない。"
 "ARCADIA-RAIDEN","玉野市","affected_records","5001","records","maximum_possible","company_subset","arcadia-tamano","2026-10-14","https://www.city.tamano.lg.jp/site/bousai/59190.html","登録者数。漏えい確定ではない。"
 "THINCA-INTERNAL","社内業務サーバー","affected_records","5286","records","confirmed_exfiltration","supplier_total","thinca-total","2026-11-26","https://www.thinca.co.jp/news/incident1126/","契約企業等・自社社員を含む総データ件数。"
 "THINCA-INTERNAL","うち個人情報","personal_info_records","4777","records","confirmed_exfiltration","supplier_subset","thinca-total","2026-11-26","https://www.thinca.co.jp/news/incident1126/","5,286件の内数。"
