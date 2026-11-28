@@ -100,3 +100,8 @@
 "PLAID","三菱地所株式会社／Will Conscious Marunouchi","exfiltrated_records","1258","records","confirmed_exfiltration","company_subset","mec-8-services","2026-11-26","https://www.mec.co.jp/news/notice_detail/mec/261126.pdf","8サービスの個別件数。重複不明、ユニーク人数・法人数へ換算しない。"
 "PLAID","三菱地所株式会社／MECチケットモール","exfiltrated_records","131","records","confirmed_exfiltration","company_subset","mec-8-services","2026-11-26","https://www.mec.co.jp/news/notice_detail/mec/261126.pdf","8サービスの個別件数。重複不明、ユニーク人数・法人数へ換算しない。"
 "PLAID","三菱地所株式会社／ワーケーションポータル","exfiltrated_records","11","records","confirmed_exfiltration","company_subset","mec-8-services","2026-11-26","https://www.mec.co.jp/news/notice_detail/mec/261126.pdf","8サービスの個別件数。重複不明、ユニーク人数・法人数へ換算しない。"
+"ARARA","株式会社インターオフィス","email_addresses","4359","addresses","confirmed_exfiltration","company_subset","arara-maarket","2026-11-13","https://maarket.jp/view/news/20261113121943","MAARKET。親事故の内数。"
+"GOQ","株式会社イチネンネット","affected_people","7694","persons","confirmed_exfiltration","company_subset","goq-ichinen","2026-11-27","https://www.ichinennet.jp/pages/security-incident-20261127","複数店舗全体。自社サイト20名は内数。"
+"GOQ","株式会社イチネンネット","affected_orders","7271","orders","confirmed_exfiltration","company_subset","goq-ichinen","2026-11-27","https://www.ichinennet.jp/pages/security-incident-20261127","複数店舗全体。自社サイト16注文は内数。"
+"GOQ","株式会社イチネンネット（自社サイト）","affected_people","20","persons","confirmed_exfiltration","subset_of_company","goq-ichinen","2026-11-27","https://www.ichinennet.jp/pages/security-incident-20261127","7,694名の内数。"
+"GOQ","株式会社イチネンネット（自社サイト）","affected_orders","16","orders","confirmed_exfiltration","subset_of_company","goq-ichinen","2026-11-27","https://www.ichinennet.jp/pages/security-incident-20261127","7,271注文の内数。"
